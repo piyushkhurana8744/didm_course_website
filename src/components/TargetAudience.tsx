@@ -23,9 +23,9 @@ export default function TargetAudience() {
               Digital Marketing is an evolving and highly adaptable field. Whether you are a student looking to start your career, a professional wanting to upgrade, or an entrepreneur eager to scale your business, this course is tailored for you.
             </p>
             <div>
-              <button className="bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded shadow-lg transition-transform hover:-translate-y-1 tracking-wide">
+              <a href="#enquiry-form" className="bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded shadow-lg transition-transform hover:-translate-y-1 tracking-wide inline-block">
                 ENROLL NOW
-              </button>
+              </a>
             </div>
           </div>
 

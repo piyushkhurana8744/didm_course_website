@@ -8,14 +8,17 @@ import * as z from 'zod';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
-  phone: z.string().min(10, 'Valid phone number is required'),
+  phone: z.string().regex(/^\d{10}$/, 'Phone number must be exactly 10 digits'),
   email: z.string().email('Invalid email address'),
   location: z.string().min(1, 'Please select a location'),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
+import { useRouter } from 'next/navigation';
+
 export default function Footer() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -25,9 +28,32 @@ export default function Footer() {
   });
 
   const onSubmit = async (data: FormData) => {
-    console.log(data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    alert("Inquiry sent successfully!");
+    try {
+      const params = new URLSearchParams({
+        name: data.name,
+        email: data.email,
+        mobileno: data.phone,
+        course: "Digital Marketing Master Course",
+        enquirysource: "Website Footer",
+        interestlevel: "Medium",
+        country: "India",
+        state: "",
+        city: data.location,
+        remark: "Lead from Footer Form",
+        address: "",
+        counsellor: ""
+      });
+
+      const apiUrl = `http://admin.didm.in/api/lead/custom/0001?${params.toString()}`;
+      
+      // Sending request with no-cors to avoid preflight issues if the server isn't configured for them
+      fetch(apiUrl, { mode: 'no-cors' }).catch(err => console.error("API Call Error:", err));
+      
+      router.push('/thank-you');
+    } catch (error) {
+      console.error("Submission error:", error);
+      router.push('/thank-you');
+    }
   };
 
   return (
@@ -56,6 +82,10 @@ export default function Footer() {
                 type="tel" 
                 placeholder="Enter your phone number"
                 {...register('phone')}
+                maxLength={10}
+                onInput={(e) => {
+                  e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                }}
                 className="w-full px-3 py-2 bg-white border border-gray-200 focus:outline-none focus:border-red-600 transition-colors text-black" 
               />
             </div>

@@ -112,12 +112,12 @@ export default function WhyUsSection() {
             </div>
             
             <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-              <button className="bg-black text-white font-semibold text-sm py-2.5 px-6 rounded shadow hover:bg-gray-800 transition-colors">
+              <a href="#enquiry-form" className="bg-black text-white font-semibold text-sm py-2.5 px-6 rounded shadow hover:bg-gray-800 transition-colors">
                  Know More Now
-              </button>
-              <button className="bg-[#b32b2b] text-white font-semibold text-sm py-2.5 px-6 rounded shadow hover:bg-[#8f2222] transition-colors flex items-center gap-2">
+              </a>
+              <a href="#enquiry-form" className="bg-[#b32b2b] text-white font-semibold text-sm py-2.5 px-6 rounded shadow hover:bg-[#8f2222] transition-colors flex items-center gap-2">
                  Book Your Free Demo Class <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
           
@@ -207,9 +207,9 @@ export default function WhyUsSection() {
            </div>
            
            <div className="mt-8 flex justify-center">
-              <button className="bg-[#b32b2b] text-white font-semibold text-[15px] py-3 px-8 rounded shadow hover:bg-[#8f2222] transition-colors flex items-center gap-2">
+              <a href="#enquiry-form" className="bg-[#b32b2b] text-white font-semibold text-[15px] py-3 px-8 rounded shadow hover:bg-[#8f2222] transition-colors flex items-center gap-2">
                  Book Your Free Demo Class <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
            </div>
         </div>
         

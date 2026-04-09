@@ -66,10 +66,10 @@ export default function CourseDescription() {
           </ul>
 
           <div className="pt-6">
-            <button className="bg-[#b32b2b] hover:bg-[#a60b0e] text-white font-bold py-4 px-10 rounded shadow-2xl transition-all hover:scale-105 flex items-center space-x-3 uppercase tracking-wider">
+            <a href="#enquiry-form" className="bg-[#b32b2b] hover:bg-[#a60b0e] text-white font-bold py-4 px-10 rounded shadow-2xl transition-all hover:scale-105 flex items-center justify-center space-x-3 uppercase tracking-wider">
               <span>DOWNLOAD CURRICULUM</span>
               <svg className="w-5 h-5 border-2 border-white rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-            </button>
+            </a>
           </div>
         </div>
 

@@ -36,8 +36,8 @@ export default function HeroForm() {
         enquirysource: "Landing Page",
         interestlevel: "High",
         country: "India",
-        state: "",
-        city: data.location,
+        state: data.location,
+        city: "",
         remark: "Lead from Hero Form",
         address: "",
         counsellor: ""

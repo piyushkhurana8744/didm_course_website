@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -19,6 +19,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Footer() {
   const router = useRouter();
+  const [apiError, setApiError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -28,6 +29,7 @@ export default function Footer() {
   });
 
   const onSubmit = async (data: FormData) => {
+    setApiError(null);
     try {
       const params = new URLSearchParams({
         name: data.name,
@@ -37,8 +39,8 @@ export default function Footer() {
         enquirysource: "Website Footer",
         interestlevel: "Medium",
         country: "India",
-        state: "",
-        city: data.location,
+        state: data.location,
+        city: "",
         remark: "Lead from Footer Form",
         address: "",
         counsellor: ""
@@ -46,13 +48,12 @@ export default function Footer() {
 
       const apiUrl = `http://admin.didm.in/api/lead/custom/0001?${params.toString()}`;
       
-      // Sending request with no-cors to avoid preflight issues if the server isn't configured for them
-      fetch(apiUrl, { mode: 'no-cors' }).catch(err => console.error("API Call Error:", err));
+      const response = await fetch(apiUrl, { mode: 'no-cors' });
       
       router.push('/thank-you');
     } catch (error) {
       console.error("Submission error:", error);
-      router.push('/thank-you');
+      setApiError("Something went wrong. Please try again.");
     }
   };
 
@@ -118,13 +119,27 @@ export default function Footer() {
                 <option value="Gurgaon">Gurgaon</option>
               </select>
             </div>
+            {apiError && (
+              <p className="text-red-600 text-[12px] font-bold text-center mt-2 bg-red-50 p-2 rounded">
+                {apiError}
+              </p>
+            )}
+
             <div className="pt-2">
               <button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#cb1116] hover:bg-[#a60b0e] text-white font-medium text-[15px] p-2.5 transition-colors disabled:opacity-70"
+                className="w-full bg-[#cb1116] hover:bg-[#a60b0e] text-white font-medium text-[15px] p-2.5 transition-colors disabled:opacity-70 flex items-center justify-center space-x-2"
               >
-                 {isSubmitting ? 'Submitting...' : 'Download Brochure'}
+                 {isSubmitting ? (
+                   <>
+                     <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                     </svg>
+                     <span>Processing...</span>
+                   </>
+                 ) : 'Download Brochure'}
               </button>
             </div>
           </form>

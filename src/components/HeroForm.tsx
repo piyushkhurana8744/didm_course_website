@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -18,6 +18,7 @@ import { useRouter } from 'next/navigation';
 
 export default function HeroForm() {
   const router = useRouter();
+  const [apiError, setApiError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -27,32 +28,31 @@ export default function HeroForm() {
   });
 
   const onSubmit = async (data: FormData) => {
+    setApiError(null);
     try {
       const params = new URLSearchParams({
         name: data.name,
         email: data.email,
         mobileno: data.phone,
         course: "Digital Marketing Master Course",
-        enquirysource: "Landing Page",
+        enquirysource: "Adword",
         interestlevel: "High",
         country: "India",
         state: data.location,
         city: "",
-        remark: "Lead from Hero Form",
         address: "",
         counsellor: ""
       });
 
       const apiUrl = `http://admin.didm.in/api/lead/custom/0001?${params.toString()}`;
       
-      // Sending the request. Using mode: 'no-cors' if needed, but standard fetch first.
-      fetch(apiUrl, { mode: 'no-cors' }).catch(err => console.error("API Call Error:", err));
+      const response = await fetch(apiUrl, { mode: 'no-cors' });
       
-      // We redirect anyway to ensure the user gets to the thank you page
+      // With no-cors, the response is opaque, but we assume success if it doesn't throw
       router.push('/thank-you');
     } catch (error) {
       console.error("Submission error:", error);
-      router.push('/thank-you');
+      setApiError("Something went wrong. Please try again or contact support.");
     }
   };
 
@@ -125,12 +125,26 @@ export default function HeroForm() {
           {errors.location && <p className="text-red-500 text-xs mt-1">{errors.location.message}</p>}
         </div>
 
+        {apiError && (
+          <p className="text-red-600 text-[13px] font-bold text-center mt-2 bg-red-50 p-2 rounded border border-red-200">
+            {apiError}
+          </p>
+        )}
+
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[#cb1116] hover:bg-[#a60b0e] text-white text-[16px] font-bold p-3 mt-4 transition-all hover:shadow-lg active:scale-95 disabled:opacity-70"
+          className="w-full bg-[#cb1116] hover:bg-[#a60b0e] text-white text-[16px] font-bold p-3 mt-4 transition-all hover:shadow-lg active:scale-95 disabled:opacity-70 flex items-center justify-center space-x-2"
         >
-          {isSubmitting ? 'Submitting...' : 'Download Brochure'}
+          {isSubmitting ? (
+            <>
+              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <span>Processing...</span>
+            </>
+          ) : 'Download Brochure'}
         </button>
       </form>
     </div>

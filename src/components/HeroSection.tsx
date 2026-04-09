@@ -4,53 +4,46 @@ import HeroForm from './HeroForm';
 
 export default function HeroSection() {
   return (
-    <section className="bg-[#8a080c] text-white py-12 lg:py-16 px-4 md:px-12 xl:px-20 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start justify-between">
+    <section className="premium-gradient text-white py-10 lg:py-14 px-4 md:px-10 xl:px-16 relative overflow-hidden min-h-[calc(100vh-90px)] flex items-center">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-black/5 -skew-x-12 transform translate-x-1/2" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
+      
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-center justify-between relative z-10 w-full">
         
         {/* Left Content */}
-        <div className="flex-1 space-y-6 lg:pr-10 w-full pt-4">
+        <div className="flex-1 space-y-5 w-full animate-fade-in-up">
           
-          <div className="space-y-1">
-            <h2 className="text-[#fad400] font-black text-2xl sm:text-3xl tracking-wide uppercase italic">
-              India's 1st HYBRID
-            </h2>
+          <div className="space-y-2">
+            <h3 className="text-white font-medium text-base sm:text-lg tracking-wide uppercase animate-fade-in-up stagger-1">
+              #1 AI + Master in
+            </h3>
             
-            <div className="flex items-center space-x-6">
-              <span className="text-white text-3xl sm:text-4xl font-medium tracking-tight">Master in</span>
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0">
-                <Image 
-                  src="/images/10-year.png" 
-                  alt="10 Years of Excellence" 
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                />
-              </div>
-            </div>
-            
-            <h1 className="text-[36px] sm:text-[50px] lg:text-[64px] font-black leading-none tracking-tighter text-[#fad400] uppercase">
-              DIGITAL MARKETING COURSE
+            <h1 className="text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.2] tracking-tight text-[#fad400] uppercase animate-fade-in-up stagger-2">
+              DIGITAL MARKETING<br />
+              <span className="text-white">COURSE TRAINING</span><br />
+              PROGRAM
             </h1>
           </div>
           
-          <p className="text-white text-[15px] sm:text-base max-w-2xl font-semibold leading-relaxed">
-            India's best digital marketing course offering industry-relevant training through multiple certifications.
+          <p className="text-white/90 text-[15px] sm:text-base max-w-xl font-normal leading-relaxed animate-fade-in-up stagger-3">
+            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing training certification program <span className="underline decoration-[#fad400] decoration-1 underline-offset-4">Noida & Delhi</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
           </p>
+
+          <div className="flex flex-wrap gap-3 items-center animate-fade-in-up stagger-4">
+             <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 font-medium text-[12px] uppercase tracking-widest">
+               Online & Offline Modes Available
+             </div>
+          </div>
           
-          {/* Certifications and logos - Single Image Row */}
-          <div className="pt-2">
-             <Image 
-               src="/images/brand-award.png" 
-               alt="Awarded By and Certifications" 
-               width={800} 
-               height={120} 
-               className="w-full max-w-[800px] h-auto object-contain object-left"
-               priority
-             />
+          {/* Trust Indicators */}
+          <div className="pt-4 animate-fade-in-up stagger-4">
+            <Image src="/images/brand-award.png" alt="Awards & Certifications" width={500} height={60} className="object-contain opacity-90" />
           </div>
         </div>
 
         {/* Right Content / Form */}
-        <div className="w-full lg:w-[420px] shrink-0 pt-4">
+        <div className="w-full lg:w-[400px] shrink-0">
           <HeroForm />
         </div>
       </div>

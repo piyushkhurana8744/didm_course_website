@@ -3,11 +3,11 @@ import { Download } from 'lucide-react';
 
 export default function TopNav() {
   return (
-    <nav className="bg-white py-2 px-4 md:px-12 flex justify-center items-center border-b border-gray-100">
-      <a href="#enquiry-form" className="bg-[#b32b2b] hover:bg-[#a60b0e] text-white font-bold py-1.5 px-6 rounded-sm shadow-md flex items-center space-x-2 transition-transform hover:scale-105 active:scale-95">
-        <span className="text-[13px] uppercase tracking-wider">DOWNLOAD CURRICULUM</span>
-        <div className="border border-white rounded-full p-0.5">
-          <Download className="w-3 h-3" strokeWidth={3} />
+    <nav className="bg-white py-4 px-4 md:px-12 flex justify-center items-center border-b border-gray-100 shadow-sm">
+      <a href="#enquiry-form" className="bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold py-2.5 px-8 rounded-xl shadow-lg flex items-center space-x-3 transition-all hover:-translate-y-0.5 active:scale-95">
+        <span className="text-[14px] uppercase tracking-[0.15em]">Download Curriculum</span>
+        <div className="border-[1.5px] border-white/40 rounded-full p-1">
+          <Download className="w-3.5 h-3.5" strokeWidth={2.5} />
         </div>
       </a>
     </nav>

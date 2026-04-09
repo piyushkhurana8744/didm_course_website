@@ -15,13 +15,14 @@ const features = [
 
 export default function CourseDescription() {
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="py-12 md:py-16 bg-white overflow-hidden relative">
+      <div className="absolute top-0 left-0 w-48 h-48 bg-red-50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-50" />
+      <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center relative z-10">
         
         {/* Left Side: Overlapping Images */}
-        <div className="relative h-[400px] sm:h-[500px]">
+        <div className="relative h-[350px] sm:h-[420px] animate-zoom-in">
           {/* Back Image (Top tilted) */}
-          <div className="absolute top-0 right-0 w-[85%] h-[80%] z-0 rounded-sm shadow-lg overflow-hidden transform rotate-2">
+          <div className="absolute top-0 right-0 w-[85%] h-[80%] z-0 rounded-2xl shadow-2xl overflow-hidden transform rotate-3 border-4 border-white">
             <Image 
               src="/images/DSC07557.png" 
               alt="Digital Marketing Classroom" 
@@ -31,44 +32,45 @@ export default function CourseDescription() {
             />
           </div>
           {/* Front Image (Bottom tilted) */}
-          <div className="absolute bottom-0 left-0 w-[85%] h-[80%] z-10 rounded-sm shadow-xl overflow-hidden transform -rotate-1">
+          <div className="absolute bottom-0 left-0 w-[85%] h-[80%] z-10 rounded-2xl shadow-2xl overflow-hidden transform -rotate-2 border-4 border-white">
             <Image 
               src="/images/DSC05961.png" 
               alt="Digital Marketing Graduates" 
               fill
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </div>
-        </div>
+          </div>
 
         {/* Right Side: Content */}
-        <div className="space-y-6">
-          <div className="space-y-1">
-            <h4 className="text-black font-extrabold text-sm tracking-widest uppercase italic">HYBRID TRAINING PROGRAM</h4>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#b32b2b] uppercase tracking-tighter leading-none">
-              MASTER IN DIGITAL MARKETING
+        <div className="space-y-6 animate-fade-in-up">
+          <div className="space-y-3">
+            <h4 className="text-[#b52727] font-semibold text-[11px] tracking-[0.3em] uppercase italic bg-red-50/50 inline-block px-4 py-1 rounded-full">HYBRID TRAINING PROGRAM</h4>
+            <h2 className="text-2xl md:text-3xl lg:text-[36px] font-semibold text-[#0f172a] uppercase tracking-tight leading-[1.2]">
+              MASTER <span className="text-[#b52727]">IN DIGITAL</span> MARKETING
             </h2>
           </div>
           
-          <p className="text-gray-600 text-base leading-relaxed font-medium">
-            We are prime and the best institute for a <span className="font-bold text-gray-800">digital marketing course</span> in Delhi/NCR & across India. This course makes you capable of grabbing a good package as a fresher. Furthermore, it will enhance your skill if you are a working professional and also provide you with ample opportunities to work as a freelancer after completion of the digital marketing course.
+          <p className="text-slate-600 text-[15px] leading-relaxed font-normal">
+            We are prime and the best institute for a <span className="text-[#b52727] font-medium underline decoration-[#fad400] decoration-2 underline-offset-4">digital marketing course</span> in Delhi/NCR & across India. This course makes you capable of grabbing a good package as a fresher. Furthermore, it will enhance your skill if you are a working professional.
           </p>
 
-          <ul className="space-y-4 pt-4">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-2">
             {features.map((feature, idx) => (
-              <li key={idx} className="flex items-center space-x-4">
-                <div className="bg-[#b32b2b] p-1.5 rounded-full">
-                   <Star className="text-white fill-white" size={14} />
+              <li key={idx} className="flex items-center space-x-3 group">
+                <div className="bg-[#b52727]/10 p-2 rounded-lg transition-all duration-300 group-hover:bg-[#b52727]">
+                   <Star className="text-[#b52727] group-hover:text-white fill-current" size={12} />
                 </div>
-                <span className="text-gray-950 font-black text-lg tracking-tight">{feature}</span>
+                <span className="text-slate-700 font-normal text-[13px] tracking-tight leading-snug">{feature}</span>
               </li>
             ))}
           </ul>
 
           <div className="pt-6">
-            <a href="#enquiry-form" className="bg-[#b32b2b] hover:bg-[#a60b0e] text-white font-bold py-4 px-10 rounded shadow-2xl transition-all hover:scale-105 flex items-center justify-center space-x-3 uppercase tracking-wider">
-              <span>DOWNLOAD CURRICULUM</span>
-              <svg className="w-5 h-5 border-2 border-white rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+            <a href="#enquiry-form" className="bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold py-3.5 px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-3 uppercase tracking-[0.15em] text-sm w-full sm:w-auto active:scale-95">
+              <span>Download Curriculum</span>
+              <svg className="w-5 h-5 border-[1.5px] border-white/40 rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
             </a>
           </div>
         </div>

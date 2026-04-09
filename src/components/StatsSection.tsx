@@ -26,19 +26,19 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-12 bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <h2 className="text-center font-bold text-2xl md:text-3xl text-gray-800 mb-10">
-          <span className="text-primary tracking-tight">100% Placement Assistance</span> | #1 Digital Marketing Institute
+    <section className="py-12 md:py-16 bg-slate-50 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
+        <h2 className="text-center font-semibold text-2xl md:text-[28px] text-[#0f172a] mb-10 animate-fade-in-up uppercase tracking-tight leading-tight">
+          <span className="text-[#b52727]">100% Placement Assistance</span><br className="md:hidden" /> | #1 Digital Marketing Institute
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {stats.map((stat, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col items-center justify-center text-center transform hover:-translate-y-1 transition-all hover:shadow-md cursor-pointer">
-              <div className="bg-red-50 p-3 rounded-full mb-4">
+            <div key={idx} className={`bg-white rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] border border-slate-100 p-6 flex flex-col items-center justify-center text-center transform hover:-translate-y-1 transition-all duration-500 hover:shadow-xl cursor-default animate-zoom-in stagger-${idx + 1}`}>
+              <div className="bg-red-50 p-3.5 rounded-xl mb-5 group-hover:scale-110 transition-transform text-[#b52727]">
                 {stat.icon}
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-1">{stat.value}</h3>
-              <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">{stat.label}</p>
+              <h3 className="text-2xl md:text-3xl font-semibold text-[#0f172a] mb-2 tracking-tight leading-none">{stat.value}</h3>
+              <p className="text-[11px] font-medium text-slate-400 uppercase tracking-[0.15em] leading-tight">{stat.label}</p>
             </div>
           ))}
         </div>

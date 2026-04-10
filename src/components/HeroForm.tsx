@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { CheckCircle2 } from 'lucide-react';
+import axios from 'axios';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -32,23 +33,14 @@ export default function HeroForm() {
   const onSubmit = async (data: FormData) => {
     setApiError(null);
     try {
-      const params = new URLSearchParams({
+      // Use internal API proxy to avoid CORS issues on Vercel
+      await axios.post('/api/lead', {
         name: data.name,
         email: data.email,
-        mobileno: data.phone,
-        course: "Digital Marketing Master Course",
+        phone: data.phone,
+        location: data.location,
         enquirysource: "Adword",
-        interestlevel: "High",
-        country: "India",
-        state: data.location,
-        city: "",
-        address: "",
-        counsellor: ""
       });
-
-      const apiUrl = `http://admin.didm.in/api/lead/custom/0001?${params.toString()}`;
-      
-      const response = await fetch(apiUrl, { mode: 'no-cors' });
       
       // Show success popup
       setIsSuccess(true);

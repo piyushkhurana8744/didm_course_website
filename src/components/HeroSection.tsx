@@ -27,7 +27,7 @@ export default function HeroSection() {
           </div>
           
           <p className="text-white/90 text-[15px] sm:text-base max-w-xl font-normal leading-relaxed animate-fade-in-up stagger-3">
-            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing training certification program <span className="underline decoration-[#fad400] decoration-1 underline-offset-4">Noida & Delhi</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
+            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing training certification program <span>Delhi NCR</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
           </p>
 
           <div className="flex flex-wrap gap-3 items-center animate-fade-in-up stagger-4">

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { CheckCircle2 } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -20,6 +21,7 @@ import { useRouter } from 'next/navigation';
 export default function Footer() {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
   const {
     register,
     handleSubmit,
@@ -50,7 +52,10 @@ export default function Footer() {
       
       const response = await fetch(apiUrl, { mode: 'no-cors' });
       
-      router.push('/thank-you');
+      setIsSuccess(true);
+      setTimeout(() => {
+        router.push('/thank-you');
+      }, 2000);
     } catch (error) {
       console.error("Submission error:", error);
       setApiError("Something went wrong. Please try again.");
@@ -77,7 +82,7 @@ export default function Footer() {
                 id="footer-name"
                 placeholder="Enter your name"
                 {...register('name')}
-                className="w-full px-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-xl text-sm focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal" 
+                className={`w-full px-4 py-3 bg-slate-50 border-2 rounded-xl text-sm focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.name ? 'border-red-500' : 'border-slate-400'}`} 
               />
               {errors.name && <p className="text-red-500 text-[11px] font-medium mt-1 ml-1">{errors.name.message}</p>}
             </div>
@@ -92,7 +97,7 @@ export default function Footer() {
                 onInput={(e) => {
                   e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
                 }}
-                className="w-full px-5 py-4 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal" 
+                className={`w-full px-5 py-4 bg-slate-50 border-2 rounded-2xl focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.phone ? 'border-red-500' : 'border-slate-400'}`} 
               />
               {errors.phone && <p className="text-red-500 text-[11px] font-medium mt-1 ml-1">{errors.phone.message}</p>}
             </div>
@@ -103,7 +108,7 @@ export default function Footer() {
                 type="email" 
                 placeholder="Enter your email id"
                 {...register('email')}
-                className="w-full px-5 py-4 bg-slate-50 border-2 border-slate-50 rounded-2xl focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal" 
+                className={`w-full px-5 py-4 bg-slate-50 border-2 rounded-2xl focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.email ? 'border-red-500' : 'border-slate-400'}`} 
               />
               {errors.email && <p className="text-red-500 text-[11px] font-medium mt-1 ml-1">{errors.email.message}</p>}
             </div>
@@ -112,7 +117,7 @@ export default function Footer() {
               <select 
                 id="footer-location"
                 {...register('location')}
-                className="w-full px-4 py-3 bg-slate-50 border-2 border-slate-50 rounded-xl text-sm focus:outline-none focus:border-[#b52727] transition-all text-[#0f172a] font-normal appearance-none"
+                className={`w-full px-4 py-3 bg-slate-50 border-2 rounded-xl text-sm focus:outline-none focus:border-[#b52727] transition-all text-[#0f172a] font-normal appearance-none ${errors.location ? 'border-red-500' : 'border-slate-400'}`}
               >
                 <option value="">Select Location</option>
                 <option value="Dwarka">Dwarka</option>
@@ -210,6 +215,31 @@ export default function Footer() {
         </div>
         
       </div>
+
+      {/* Success Popup */}
+      {isSuccess && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-[#0f172a]/80 backdrop-blur-sm animate-fade-in"></div>
+          <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl relative z-10 text-center animate-zoom-in">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-10 h-10 text-green-600 animate-bounce" />
+            </div>
+            <h3 className="text-2xl font-bold text-[#0f172a] mb-2">Thank You!</h3>
+            <p className="text-gray-600 mb-6 italic">
+              "We've received your query. Our advisor will contact you shortly."
+            </p>
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-[#b52727] uppercase tracking-widest">
+                Application Received
+              </p>
+              <div className="flex items-center justify-center space-x-2 text-gray-400 text-xs">
+                <div className="w-1.5 h-1.5 bg-[#b52727] rounded-full animate-ping"></div>
+                <span>Redirecting you shortly...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

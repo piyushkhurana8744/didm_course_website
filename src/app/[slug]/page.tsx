@@ -8,20 +8,34 @@ import TargetAudience from '@/components/TargetAudience';
 import CtaBanner from '@/components/CtaBanner';
 import WhyUsSection from '@/components/WhyUsSection';
 import Footer from '@/components/Footer';
+import { notFound } from 'next/navigation';
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug || '';
+
+  if (!slug.startsWith('digital-marketing-')) {
+    notFound();
+  }
+
+  const type = slug.replace('digital-marketing-', '');
+  const validTypes = ['course', 'training', 'institute'];
+  if (!validTypes.includes(type)) {
+    notFound();
+  }
+
   return (
     <main className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary overflow-hidden pb-0">
       <TopNav />
-      <HeroSection />
-      <StatsSection />
-      <CourseDescription />
-      <TrainingSpecification />
+      <HeroSection term={type} />
+      <StatsSection term={type} />
+      <CourseDescription term={type} />
+      <TrainingSpecification term={type} />
       <ToolsSection />
-      <TargetAudience />
+      <TargetAudience term={type} />
       <CtaBanner />
-      <WhyUsSection />
-      <Footer />
+      <WhyUsSection term={type} />
+      <Footer term={type} />
     </main>
   );
 }

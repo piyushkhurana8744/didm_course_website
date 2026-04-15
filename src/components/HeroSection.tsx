@@ -2,7 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import HeroForm from './HeroForm';
 
-export default function HeroSection() {
+export default function HeroSection({ term = "course" }: { term?: string }) {
+  const upperTerm = term.toUpperCase();
+  
   return (
     <section className="premium-gradient text-white py-10 lg:py-14 px-4 md:px-10 xl:px-16 relative overflow-hidden min-h-[calc(100vh-90px)] flex items-center">
       {/* Decorative Background Elements */}
@@ -21,13 +23,12 @@ export default function HeroSection() {
             
             <h1 className="text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.2] tracking-tight text-[#fad400] uppercase animate-fade-in-up stagger-2">
               DIGITAL MARKETING<br />
-              <span className="text-white">COURSE TRAINING</span><br />
-              PROGRAM
+              <span className="text-white">{upperTerm}</span>
             </h1>
           </div>
           
           <p className="text-white/90 text-[15px] sm:text-base max-w-xl font-normal leading-relaxed animate-fade-in-up stagger-3">
-            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing training certification program <span>Delhi NCR</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
+            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing course certification program <span>Delhi NCR</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
           </p>
 
           <div className="flex flex-wrap gap-3 items-center animate-fade-in-up stagger-4">

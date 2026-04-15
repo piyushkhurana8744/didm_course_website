@@ -1,19 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
 
-const specs = [
-  { id: "01", text: "LATEST UPDATED COURSE CURRICULUM" },
-  { id: "02", text: "ADVANCED LMS TRAINING SUPPORT" },
-  { id: "03", text: "EXPERTS SESSIONS AND GUEST LECTURES" },
-  { id: "04", text: "GLOBAL RECOGNISED CERTIFICATES" },
-  { id: "05", text: "100% PLACEMENT ASSISTANCE" },
-  { id: "06", text: "MARKETING AUTOMATION TOOLS" },
-  { id: "07", text: "E-BOOKS | E-NOTES | ASSIGNMENTS" },
-  { id: "08", text: "CAREER SUPPORT AVAILABLE 24/7" },
-  { id: "09", text: "CAPSTONE PROJECT | BACKUP SESSION | 650+ PLACEMENT COMPANIES" },
-];
+export default function TrainingSpecification({ term = "course" }: { term?: string }) {
+  const specs = [
+    { id: "01", text: `LATEST UPDATED ${term.toUpperCase()} CURRICULUM` },
+    { id: "02", text: "ADVANCED LMS TRAINING SUPPORT" },
+    { id: "03", text: "EXPERTS SESSIONS AND GUEST LECTURES" },
+    { id: "04", text: "GLOBAL RECOGNISED CERTIFICATES" },
+    { id: "05", text: "100% PLACEMENT ASSISTANCE" },
+    { id: "06", text: "MARKETING AUTOMATION TOOLS" },
+    { id: "07", text: "E-BOOKS | E-NOTES | ASSIGNMENTS" },
+    { id: "08", text: "CAREER SUPPORT AVAILABLE 24/7" },
+    { id: "09", text: "CAPSTONE PROJECT | BACKUP SESSION | 650+ PLACEMENT COMPANIES" },
+  ];
 
-export default function TrainingSpecification() {
   return (
     <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Decorative background overlay */}
@@ -31,13 +31,13 @@ export default function TrainingSpecification() {
               </h4>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-[40px] font-semibold text-[#0f172a] tracking-tight leading-[1] uppercase">
-              TRAINING<br/><span className="text-[#b52727]">SPECIFICATION</span>
+              Training<br/><span className="text-[#b52727]">SPECIFICATION</span>
             </h2>
           </div>
           
           <div className="max-w-xl">
             <p className="text-slate-600 text-[15px] leading-relaxed font-normal">
-              Our best digital marketing course is completely <span className="text-[#b52727] font-medium">Industry-led</span> and task oriented. Multiple <span className="text-[#0f172a] font-medium">Case studies</span> and <span className="text-[#0f172a] font-medium">live projects</span> providing practical insight.
+              Our best digital marketing {term} is completely <span className="text-[#b52727] font-medium">Industry-led</span> and task oriented. Multiple <span className="text-[#0f172a] font-medium">Case studies</span> and <span className="text-[#0f172a] font-medium">live projects</span> providing practical insight.
             </p>
           </div>
 

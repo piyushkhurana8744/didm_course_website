@@ -22,50 +22,53 @@ const reasonsRight = [
   "Awarded - ASSOCHAM | IFA | WASME",
 ];
 
-const searchedLeft = [
-  "Best Digital Marketing Institute Across Delhi",
-  "Digital Marketing Institute in Delhi & Delhi NCR",
-  "Digital Marketing Course in Delhi & Delhi NCR",
-  "Digital Marketing Course in Pitampura",
-];
-
-const searchedRight = [
-  "Digital Marketing Institute in Noida",
-  "Digital Marketing Institute in Gurgaon",
-  "Digital Marketing Training in Delhi",
-  "Digital Marketing Course in Rajouri Garden",
-];
-
-const testimonials = [
-  {
-    name: "Divya Gupta",
-    image: "/images/divya-gupta.png",
-    text: "I recently completed the digital marketing course at DIDM and I am very impressed with the institute. The curriculum is impressive and up to date. Trainers are experienced and passionate about teaching."
-  },
-  {
-    name: "Arjun Ahuja",
-    image: "/images/arjun-ahuja.png",
-    text: "I have a wonderful experience with Delhi Institute of Digital Marketing. I recently completed my Master course. If anybody wants to join a digital marketing course, they must go to the Satya Niketan branch."
-  },
-  {
-    name: "Jitender",
-    image: "/images/jitender.png",
-    text: "Best Digital Marketing Institute in Delhi, they also provide onboard training which helps you get practical experience. If you are looking for a Digital marketing institute then this is the right place."
-  },
-  {
-    name: "Debasis",
-    image: "/images/debasis.png",
-    text: "I am a student of DIDM. I have never faced any issue regarding anything. All trainers are very cooperative and polite. DIDM is the best digital marketing institute in delhi. I strongly recommend DIDM to everyo"
-  },
-  {
-    name: "Pakhi",
-    image: "/images/pakhi.png",
-    text: "DIDM is the best Digital Marketing institute as per my opinion because after class 12th I was clueless and DIDM showed me the new way to succeed. Now, I am working with a digital agency in Paid ads."
-  }
-];
-
-export default function WhyUsSection() {
+export default function WhyUsSection({ term = "course" }: { term?: string }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+  const termCap = capitalize(term);
+
+  const searchedLeft = [
+    "Best Digital Marketing Institute Across Delhi",
+    "Digital Marketing Institute in Delhi & Delhi NCR",
+    `Digital Marketing ${termCap} in Delhi & Delhi NCR`,
+    `Digital Marketing ${termCap} in Pitampura`,
+  ];
+
+  const searchedRight = [
+    "Digital Marketing Institute in Noida",
+    "Digital Marketing Institute in Gurgaon",
+    "Digital Marketing Training in Delhi",
+    `Digital Marketing ${termCap} in Rajouri Garden`,
+  ];
+
+  const testimonials = [
+    {
+      name: "Divya Gupta",
+      image: "/images/divya-gupta.png",
+      text: `I recently completed the digital marketing ${term} at DIDM and I am very impressed with the institute. The curriculum is impressive and up to date. Trainers are experienced and passionate about teaching.`
+    },
+    {
+      name: "Arjun Ahuja",
+      image: "/images/arjun-ahuja.png",
+      text: `I have a wonderful experience with Delhi Institute of Digital Marketing. I recently completed my Master ${term}. If anybody wants to join a digital marketing ${term}, they must go to the Satya Niketan branch.`
+    },
+    {
+      name: "Jitender",
+      image: "/images/jitender.png",
+      text: "Best Digital Marketing Institute in Delhi, they also provide onboard training which helps you get practical experience. If you are looking for a Digital marketing institute then this is the right place."
+    },
+    {
+      name: "Debasis",
+      image: "/images/debasis.png",
+      text: "I am a student of DIDM. I have never faced any issue regarding anything. All trainers are very cooperative and polite. DIDM is the best digital marketing institute in delhi. I strongly recommend DIDM to everyo"
+    },
+    {
+      name: "Pakhi",
+      image: "/images/pakhi.png",
+      text: "DIDM is the best Digital Marketing institute as per my opinion because after class 12th I was clueless and DIDM showed me the new way to succeed. Now, I am working with a digital agency in Paid ads."
+    }
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -85,7 +88,7 @@ export default function WhyUsSection() {
           <div className="space-y-5 animate-fade-in-up">
             <div>
               <h2 className="text-2xl md:text-[28px] font-semibold text-slate-800 leading-[1.3] tracking-tight border-l-4 border-[#b52727] pl-5">
-                #Why we are Best in Digital Marketing<br/>Training Institute PAN INDIA
+                #Why we are Best in Digital Marketing Training Institute​ PAN INDIA
               </h2>
               <p className="mt-4 text-slate-600 text-[15px] leading-relaxed font-normal">
                 At Delhi Institute of Digital Marketing <span className="text-[#b52727] font-medium">(DIDM)</span>, we stand out as the leaders in the digital marketing training domain. There are more than <span className="text-[#b52727] font-medium">150+</span> reasons to join our program. Our current training rating is <span className="text-[#b52727] font-medium">4.8/5</span>.

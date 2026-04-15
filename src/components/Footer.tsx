@@ -19,7 +19,7 @@ type FormData = z.infer<typeof formSchema>;
 
 import { useRouter } from 'next/navigation';
 
-export default function Footer() {
+export default function Footer({ term = "course" }: { term?: string }) {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -40,8 +40,8 @@ export default function Footer() {
         email: data.email,
         phone: data.phone,
         location: data.location,
-        enquirysource: "Website Footer",
-        remark: "Lead from Footer Form",
+        enquirysource: "Adword",
+        remark: "Lead from website",
       });
       
       setIsSuccess(true);
@@ -191,7 +191,7 @@ export default function Footer() {
               <div>
                 <h4 className="font-semibold text-base text-[#fad400] mb-2 uppercase tracking-wider">About DIDM</h4>
                 <p className="text-[13px] text-white leading-relaxed font-normal mb-5">
-                  Delhi Institute of Digital Marketing makes our candidates gratifying when it comes to infusing skills with practical knowledge and recent trends in the industry. We are a reputed and the best digital marketing institute in Delhi/NCR & across India. By MSME | ISO Certified.
+                  Delhi Institute of Digital Marketing makes our candidates gratifying when it comes to infusing skills with practical knowledge and recent trends in the industry. We are a reputed and the best digital marketing {term} in Delhi/NCR & across India. By MSME | ISO Certified.
                 </p>
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
                    <Image 

@@ -8,7 +8,7 @@ const audiences = [
   { label: "Freelancers", percentage: 90 },
 ];
 
-export default function TargetAudience() {
+export default function TargetAudience({ term = "course" }: { term?: string }) {
   return (
     <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
@@ -17,10 +17,10 @@ export default function TargetAudience() {
           {/* Left Side: Content */}
           <div className="p-8 md:p-12 lg:w-1/2 flex flex-col justify-center bg-slate-50/50">
             <h2 className="text-2xl md:text-[28px] font-semibold text-[#0f172a] leading-[1.3] mb-6 tracking-tight uppercase">
-              Who can join our <span className="text-[#b52727]">most demanding</span> digital marketing course?
+              Who can join our <span className="text-[#b52727]">most demanding</span> digital marketing {term}?
             </h2>
             <p className="text-slate-600 text-[15px] leading-relaxed mb-8 font-normal">
-              Digital Marketing is an evolving and highly adaptable field. Whether you are a student looking to start your career, a professional wanting to upgrade, or an entrepreneur eager to scale your business, this course is tailored for you.
+              Digital Marketing is an evolving and highly adaptable field. Whether you are a student looking to start your career, a professional wanting to upgrade, or an entrepreneur eager to scale your business, this {term} is tailored for you.
             </p>
             <div>
               <a href="#enquiry-form" className="bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold py-3.5 px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 active:scale-95 tracking-widest inline-block uppercase text-sm">

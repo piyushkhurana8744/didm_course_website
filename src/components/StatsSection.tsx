@@ -24,12 +24,15 @@ const stats = [
   },
 ];
 
-export default function StatsSection() {
+export default function StatsSection({ term = "course" }: { term?: string }) {
+  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+  const termCap = capitalize(term);
+
   return (
     <section className="py-12 md:py-16 bg-slate-50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
         <h2 className="text-center font-semibold text-2xl md:text-[28px] text-[#0f172a] mb-10 animate-fade-in-up uppercase tracking-tight leading-tight">
-          <span className="text-[#b52727]">100% Placement Assistance</span><br className="md:hidden" /> | #1 Digital Marketing Institute
+          <span className="text-[#b52727]">100% Placement Assistance</span><br className="md:hidden" /> | #1 Digital Marketing {termCap}
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {stats.map((stat, idx) => (

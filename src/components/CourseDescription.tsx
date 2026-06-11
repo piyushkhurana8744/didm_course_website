@@ -48,7 +48,7 @@ export default function CourseDescription({ term = "course" }: { term?: string }
           <div className="space-y-3">
             <h4 className="text-[#b52727] font-semibold text-[11px] tracking-[0.3em] uppercase italic bg-red-50/50 inline-block px-4 py-1 rounded-full">HYBRID TRAINING PROGRAM</h4>
             <h2 className="text-2xl md:text-3xl lg:text-[36px] font-semibold text-[#0f172a] uppercase tracking-tight leading-[1.2]">
-              MASTER <span className="text-[#b52727]">IN DIGITAL</span> MARKETING {term.toUpperCase()}
+              MASTER <span className="text-[#b52727]">IN DIGITAL</span> MARKETING COURSE
             </h2>
           </div>
           

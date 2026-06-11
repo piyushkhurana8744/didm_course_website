@@ -23,7 +23,7 @@ export default function HeroSection({ term = "course" }: { term?: string }) {
             
             <h1 className="text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.2] tracking-tight text-[#fad400] uppercase animate-fade-in-up stagger-2">
               DIGITAL MARKETING<br />
-              <span className="text-white">{upperTerm}</span>
+              <span className="text-white">Course</span>
             </h1>
           </div>
           

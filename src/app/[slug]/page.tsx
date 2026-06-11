@@ -29,7 +29,7 @@ export default async function Home({ params }: { params: Promise<{ slug: string 
       <TopNav />
       <HeroSection term={type} />
       <StatsSection term={type} />
-      <CourseDescription term={type} />
+      <CourseDescription term={type === "course" ? "course" : type === "training" ? "training" : type === "institute" ? "course" : "course"} />
       <TrainingSpecification term={type} />
       <ToolsSection />
       <TargetAudience term={type} />

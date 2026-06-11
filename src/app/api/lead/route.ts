@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       country: data.country || "India",
       state: data.location || data.state || '',
       city: data.city || '',
-      remark: data.remark || '',
+      remark:"lead come from "+ data.location,
       address: data.address || '',
       counsellor: data.counsellor || ''
     });

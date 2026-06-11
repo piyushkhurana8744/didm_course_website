@@ -29,17 +29,17 @@ export default function WhyUsSection({ term = "course" }: { term?: string }) {
   const termCap = capitalize(term);
 
   const searchedLeft = [
-    "Best Digital Marketing Institute Across Delhi",
-    "Digital Marketing Institute in Delhi & Delhi NCR",
-    `Digital Marketing ${termCap} in Delhi & Delhi NCR`,
+    `Digital Marketing ${termCap} in Delhi`,
     `Digital Marketing ${termCap} in Pitampura`,
+    `Digital Marketing ${termCap} in Rajouri Garden`,
+    `Digital Marketing ${termCap} in Preet Vihar`,
   ];
 
   const searchedRight = [
-    "Digital Marketing Institute in Noida",
-    "Digital Marketing Institute in Gurgaon",
-    "Digital Marketing Training in Delhi",
-    `Digital Marketing ${termCap} in Rajouri Garden`,
+    `Digital Marketing ${termCap} in Noida`,
+    `Digital Marketing ${termCap} in South Delhi`,
+    `Digital Marketing ${termCap} in Dwarka`,
+    `Digital Marketing ${termCap} in Gurugram`,
   ];
 
   const testimonials = [
@@ -203,7 +203,7 @@ export default function WhyUsSection({ term = "course" }: { term?: string }) {
                 {searchedRight.map((item, idx) => (
                   <li key={idx} className="flex items-center space-x-4 group">
                     <CheckCircle2 className="w-5 h-5 text-[#b52727] flex-shrink-0 opacity-70 group-hover:opacity-100 transition-opacity" />
-                    <span className="text-[16px] text-slate-600 font-normal tracking-tight">{item}</span>
+                    <span className="text-[14px] text-slate-600 font-normal tracking-tight">{item}</span>
                   </li>
                 ))}
               </ul>

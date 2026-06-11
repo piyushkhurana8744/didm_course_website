@@ -4,7 +4,7 @@ import { Briefcase, Building2, TrendingUp, CheckCircle } from 'lucide-react';
 const stats = [
   {
     icon: <Briefcase className="text-primary w-8 h-8" />,
-    value: "7.5 LPA",
+    value: "10 LPA",
     label: "Highest Package",
   },
   {

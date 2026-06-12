@@ -40,9 +40,9 @@ export default function RootLayout({
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NR6S9T5');`}
       </Script>
-      {/* Google tag (gtag.js) */}
+      {/* Google tag (gtag.js) - GA4 + Google Ads */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-5G5NHFFC8F"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-10840521883"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -52,6 +52,7 @@ export default function RootLayout({
           gtag('js', new Date());
 
           gtag('config', 'G-5G5NHFFC8F');
+          gtag('config', 'AW-10840521883');
         `}
       </Script>
     </html>

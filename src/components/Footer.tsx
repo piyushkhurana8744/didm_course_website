@@ -2,11 +2,18 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { CheckCircle2 } from 'lucide-react';
 import axios from 'axios';
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -16,8 +23,6 @@ const formSchema = z.object({
 });
 
 type FormData = z.infer<typeof formSchema>;
-
-import { useRouter } from 'next/navigation';
 
 export default function Footer({ term = "course" }: { term?: string }) {
   const router = useRouter();
@@ -43,6 +48,11 @@ export default function Footer({ term = "course" }: { term?: string }) {
         enquirysource: "Adword",
         remark: "Lead from website",
       });
+
+      // Fire Google Ads conversion event
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'form_submit', { send_to: 'AW-10840521883' });
+      }
       
       setIsSuccess(true);
       setTimeout(() => {

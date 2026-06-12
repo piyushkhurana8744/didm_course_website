@@ -1,11 +1,18 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { CheckCircle2 } from 'lucide-react';
 import axios from 'axios';
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -15,8 +22,6 @@ const formSchema = z.object({
 });
 
 type FormData = z.infer<typeof formSchema>;
-
-import { useRouter } from 'next/navigation';
 
 export default function HeroForm() {
   const router = useRouter();
@@ -41,6 +46,11 @@ export default function HeroForm() {
         location: data.location,
         enquirysource: "Adword",
       });
+
+      // Fire Google Ads conversion event
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'form_submit', { send_to: 'AW-10840521883' });
+      }
       
       // Show success popup
       setIsSuccess(true);

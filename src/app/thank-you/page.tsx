@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Download, ArrowRight, Check, Phone, GraduationCap, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, Phone, GraduationCap, ShieldCheck } from 'lucide-react';
 
 export default function ThankYouPage() {
   return (
@@ -86,18 +86,9 @@ export default function ThankYouPage() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="/DELHI_INSTITUTE_OF_DIGITAL_MARKETING_DOWNLOAD_BROCHURE.pdf" 
-              download 
-              className="w-full sm:w-auto bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold text-[14px] py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 active:scale-95 group"
-            >
-              <span>Download Syllabus Brochure</span>
-              <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-            </a>
-
             <Link 
               href="/" 
-              className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-semibold text-[14px] py-3.5 px-8 rounded-xl shadow-sm hover:shadow transition-all flex items-center justify-center gap-2.5 active:scale-95"
+              className="w-full sm:w-auto bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold text-[14px] py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 active:scale-95"
             >
               <span>Back to Homepage</span>
               <ArrowRight className="w-4 h-4" />

@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Master in Digital Marketing Course | #1 Institute",
   description: "Join India's 1st HYBRID Master in Digital Marketing Course. 100% Placement Assistance. 50+ Modules. Book your free demo session today!",
+  icons: {
+    icon: "/didmfavicon.png",
+  },
 };
 
 export default function RootLayout({

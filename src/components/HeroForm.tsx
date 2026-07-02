@@ -23,7 +23,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function HeroForm() {
+export default function HeroForm({ defaultLocation }: { defaultLocation?: string }) {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -33,6 +33,9 @@ export default function HeroForm() {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      location: defaultLocation || '',
+    }
   });
 
   const onSubmit = async (data: FormData) => {

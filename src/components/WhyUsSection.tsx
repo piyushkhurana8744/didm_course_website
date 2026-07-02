@@ -22,25 +22,40 @@ const reasonsRight = [
   "Awarded - ASSOCHAM | IFA | WASME",
 ];
 
-export default function WhyUsSection({ term = "course" }: { term?: string }) {
+export default function WhyUsSection({ term = "course", location }: { term?: string; location?: string }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   const termCap = capitalize(term);
 
-  const searchedLeft = [
-    `Digital Marketing ${termCap} in Delhi`,
-    `Digital Marketing ${termCap} in Pitampura`,
-    `Digital Marketing ${termCap} in Rajouri Garden`,
-    `Digital Marketing ${termCap} in Preet Vihar`,
+  const gurgaonKeywords = [
+    "Digital Marketing Course in Gurugram",
+    "Digital Marketing Course in Gurgaon",
+    "Digital Marketing Institute in Gurugram",
+    "Digital Marketing Institute in Gurgaon",
+    "Digital Marketing Training in Gurugram",
+    "Digital Marketing Training in Gurgaon",
+    "Best Digital Marketing Course",
+    "Best Digital Marketing Institute"
   ];
 
-  const searchedRight = [
-    `Digital Marketing ${termCap} in Noida`,
-    `Digital Marketing ${termCap} in South Delhi`,
-    `Digital Marketing ${termCap} in Dwarka`,
-    `Digital Marketing ${termCap} in Gurugram`,
-  ];
+  const searchedLeft = location === 'gurgaon'
+    ? gurgaonKeywords.slice(0, 4)
+    : [
+        `Digital Marketing ${termCap} in Delhi`,
+        `Digital Marketing ${termCap} in Pitampura`,
+        `Digital Marketing ${termCap} in Rajouri Garden`,
+        `Digital Marketing ${termCap} in Preet Vihar`,
+      ];
+
+  const searchedRight = location === 'gurgaon'
+    ? gurgaonKeywords.slice(4)
+    : [
+        `Digital Marketing ${termCap} in Noida`,
+        `Digital Marketing ${termCap} in South Delhi`,
+        `Digital Marketing ${termCap} in Dwarka`,
+        `Digital Marketing ${termCap} in Gurugram`,
+      ];
 
   const testimonials = [
     {

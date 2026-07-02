@@ -55,15 +55,15 @@ export default function TrainingSpecification({ term = "course" }: { term?: stri
           </ul>
 
           <div className="pt-4">
-            <a href="#footer-form" className="bg-[#b52727] hover:bg-[#911f1f] w-full sm:w-auto text-white font-semibold py-3.5 px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-3 uppercase tracking-[0.15em] text-sm active:scale-95">
+            <a href="#footer-form" className="bg-[#b52727] hover:bg-[#911f1f] w-full sm:w-auto text-white font-semibold py-3.5 px-4 sm:px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-2 sm:space-x-3 uppercase tracking-[0.08em] sm:tracking-[0.15em] text-xs sm:text-sm active:scale-95">
               <span>Download Brochure</span>
-              <svg className="w-5 h-5 border-[1.5px] border-white/30 rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 border-[1.5px] border-white/30 rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
             </a>
           </div>
         </div>
 
         {/* Right Side: Image Layout */}
-        <div className="relative w-full h-[400px] lg:h-[550px] rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border-2 border-white/10 animate-zoom-in">
+        <div className="relative w-full h-[250px] xs:h-[320px] sm:h-[400px] lg:h-[550px] rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border-2 border-white/10 animate-zoom-in">
            <Image 
              src="/images/DSC05416.png" 
              alt="Classroom Training Students" 

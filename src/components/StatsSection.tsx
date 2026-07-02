@@ -34,10 +34,10 @@ export default function StatsSection({ term = "course" }: { term?: string }) {
         <h2 className="text-center font-semibold text-2xl md:text-[28px] text-[#0f172a] mb-10 animate-fade-in-up uppercase tracking-tight leading-tight">
           <span className="text-[#b52727]">100% Placement Assistance</span><br className="md:hidden" /> | #1 Digital Marketing {termCap}
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {stats.map((stat, idx) => (
-            <div key={idx} className={`bg-white rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] border border-slate-100 p-6 flex flex-col items-center justify-center text-center transform hover:-translate-y-1 transition-all duration-500 hover:shadow-xl cursor-default animate-zoom-in stagger-${idx + 1}`}>
-              <div className="bg-red-50 p-3.5 rounded-xl mb-5 group-hover:scale-110 transition-transform text-[#b52727]">
+            <div key={idx} className={`bg-white rounded-2xl shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] border border-slate-100 p-4 xs:p-6 flex flex-col items-center justify-center text-center transform hover:-translate-y-1 transition-all duration-500 hover:shadow-xl cursor-default animate-zoom-in stagger-${idx + 1}`}>
+              <div className="bg-red-50 p-2.5 xs:p-3.5 rounded-xl mb-3 xs:mb-5 group-hover:scale-110 transition-transform text-[#b52727]">
                 {stat.icon}
               </div>
               <h3 className="text-2xl md:text-3xl font-semibold text-[#0f172a] mb-2 tracking-tight leading-none">{stat.value}</h3>

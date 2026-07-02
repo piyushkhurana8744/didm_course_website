@@ -1,7 +1,8 @@
+"use client";
+
 import React from 'react';
-import Link from 'next/link';
 import Script from 'next/script';
-import { ArrowRight, Check, Phone, GraduationCap, ShieldCheck } from 'lucide-react';
+import { Check, Phone, ShieldCheck } from 'lucide-react';
 
 export default function ThankYouPage() {
   return (
@@ -26,7 +27,7 @@ export default function ThankYouPage() {
 
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center py-12 px-4 md:px-8 relative z-10">
-        <div className="max-w-2xl w-full bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 p-8 md:p-10 text-center animate-zoom-in">
+        <div className="max-w-2xl w-full bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 p-5 sm:p-8 md:p-10 text-center animate-zoom-in">
           
           {/* Animated Success Badge */}
           <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 relative">
@@ -45,7 +46,7 @@ export default function ThankYouPage() {
           </p>
 
           {/* Next Steps Timeline */}
-          <div className="bg-slate-50/80 border border-slate-100 rounded-2xl p-6 mb-8 text-left space-y-6">
+          <div className="bg-slate-50/80 border border-slate-100 rounded-2xl p-4 sm:p-6 mb-8 text-left space-y-6">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
               What Happens Next?
             </h3>
@@ -91,13 +92,18 @@ export default function ThankYouPage() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link 
-              href="/" 
-              className="w-full sm:w-auto bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold text-[14px] py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 active:scale-95"
+            <a 
+              href="tel:8800505151" 
+              onClick={() => {
+                setTimeout(() => {
+                  window.location.href = '/';
+                }, 1000);
+              }}
+              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-[15px] py-3.5 px-4 sm:px-8 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
             >
-              <span>Back to Homepage</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Phone className="w-4 h-4 animate-bounce" />
+              <span>Talk to Counsellor</span>
+            </a>
           </div>
 
           {/* Trust badges footer */}

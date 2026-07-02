@@ -129,7 +129,7 @@ export default function WhyUsSection({ term = "course" }: { term?: string }) {
             <div className="bg-white rounded-[32px] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.08)] w-full max-w-[360px] flex flex-col items-center text-center relative overflow-hidden border border-slate-50 min-h-[400px]">
                
                {/* Top Half (White) */}
-               <div className="p-7 pb-8 w-full flex-grow flex flex-col items-center relative z-10">
+               <div className="p-5 xs:p-7 pb-6 xs:pb-8 w-full flex-grow flex flex-col items-center relative z-10">
                  {/* Decorative Quote Mark */}
                  <div className="mb-4 mt-1 text-[#b52727] opacity-20">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto block">
@@ -152,7 +152,7 @@ export default function WhyUsSection({ term = "course" }: { term?: string }) {
                </div>
                
                {/* Bottom Half (Light Blue) */}
-               <div className="bg-slate-50 w-full pt-12 pb-8 flex flex-col items-center relative h-[180px]">
+               <div className="bg-slate-50 w-full pt-10 xs:pt-12 pb-6 xs:pb-8 flex flex-col items-center relative h-auto">
                  {/* Profile Picture overlapping boundary */}
                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 rounded-full border-4 border-white shadow-lg overflow-hidden bg-white w-20 h-20 z-20">
                     <img 

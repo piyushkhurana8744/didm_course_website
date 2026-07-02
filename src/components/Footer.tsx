@@ -72,7 +72,7 @@ export default function Footer({ term = "course" }: { term?: string }) {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 relative z-10">
         
         {/* Column 1: Get In Touch Form */}
-        <div id="footer-form" className="md:col-span-12 lg:col-span-5 bg-white text-[#0f172a] rounded-2xl p-6 sm:p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.4)] transform hover:-translate-y-0.5 transition-all duration-500">
+        <div id="footer-form" className="md:col-span-12 lg:col-span-5 bg-white text-[#0f172a] rounded-2xl p-5 sm:p-8 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.4)] transform hover:-translate-y-0.5 transition-all duration-500">
           <h3 className="text-xl sm:text-2xl font-semibold text-center mb-6 leading-tight uppercase tracking-tight">
             GET IN TOUCH<br/>
             <span className="text-[#b52727]">TALK TO ADVISOR</span>
@@ -99,7 +99,7 @@ export default function Footer({ term = "course" }: { term?: string }) {
                 onInput={(e) => {
                   e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
                 }}
-                className={`w-full px-5 py-4 bg-slate-50 border-2 rounded-2xl focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.phone ? 'border-red-500' : 'border-slate-400'}`} 
+                className={`w-full px-4 py-3 bg-slate-50 border-2 rounded-xl text-sm focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.phone ? 'border-red-500' : 'border-slate-400'}`} 
               />
               {errors.phone && <p className="text-red-500 text-[11px] font-medium mt-1 ml-1">{errors.phone.message}</p>}
             </div>
@@ -110,7 +110,7 @@ export default function Footer({ term = "course" }: { term?: string }) {
                 type="email" 
                 placeholder="Enter your email id"
                 {...register('email')}
-                className={`w-full px-5 py-4 bg-slate-50 border-2 rounded-2xl focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.email ? 'border-red-500' : 'border-slate-400'}`} 
+                className={`w-full px-4 py-3 bg-slate-50 border-2 rounded-xl text-sm focus:outline-none focus:border-[#b52727] focus:ring-4 focus:ring-[#b52727]/10 transition-all text-[#0f172a] font-normal placeholder:font-normal ${errors.email ? 'border-red-500' : 'border-slate-400'}`} 
               />
               {errors.email && <p className="text-red-500 text-[11px] font-medium mt-1 ml-1">{errors.email.message}</p>}
             </div>

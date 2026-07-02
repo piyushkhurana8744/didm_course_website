@@ -15,7 +15,7 @@ export default function TargetAudience({ term = "course" }: { term?: string }) {
         <div className="glass-card rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col lg:flex-row border border-slate-50 animate-zoom-in">
           
           {/* Left Side: Content */}
-          <div className="p-8 md:p-12 lg:w-1/2 flex flex-col justify-center bg-slate-50/50">
+          <div className="p-5 xs:p-8 md:p-12 lg:w-1/2 flex flex-col justify-center bg-slate-50/50">
             <h2 className="text-2xl md:text-[28px] font-semibold text-[#0f172a] leading-[1.3] mb-6 tracking-tight uppercase">
               Who can join our <span className="text-[#b52727]">most demanding</span> digital marketing {term}?
             </h2>
@@ -30,7 +30,7 @@ export default function TargetAudience({ term = "course" }: { term?: string }) {
           </div>
 
           {/* Right Side: Progress Bars */}
-          <div className="p-8 md:p-12 lg:w-1/2 bg-white flex flex-col justify-center">
+          <div className="p-5 xs:p-8 md:p-12 lg:w-1/2 bg-white flex flex-col justify-center">
             <div className="space-y-6">
               {audiences.map((item, idx) => (
                 <div key={idx} className={`animate-fade-in-up stagger-${idx + 1}`}>

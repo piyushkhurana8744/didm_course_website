@@ -39,7 +39,13 @@ export default function HeroSection({ term = "course" }: { term?: string }) {
           
           {/* Trust Indicators */}
           <div className="pt-4 animate-fade-in-up stagger-4">
-            <Image src="/images/brand-award.png" alt="Awards & Certifications" width={500} height={60} className="object-contain opacity-90" />
+            <Image 
+              src="/images/brand-award.png" 
+              alt="Awards & Certifications" 
+              width={500} 
+              height={60} 
+              className="object-contain opacity-90 w-full h-auto max-w-[500px]" 
+            />
           </div>
         </div>
 

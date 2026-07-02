@@ -20,7 +20,7 @@ export default function CourseDescription({ term = "course" }: { term?: string }
       <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center relative z-10">
         
         {/* Left Side: Overlapping Images */}
-        <div className="relative h-[350px] sm:h-[420px] animate-zoom-in">
+        <div className="relative h-[260px] xs:h-[350px] sm:h-[420px] animate-zoom-in">
           {/* Back Image (Top tilted) */}
           <div className="absolute top-0 right-0 w-[85%] h-[80%] z-0 rounded-2xl shadow-2xl overflow-hidden transform rotate-3 border-4 border-white">
             <Image 
@@ -68,9 +68,9 @@ export default function CourseDescription({ term = "course" }: { term?: string }
           </ul>
 
           <div className="pt-6">
-            <a href="#enquiry-form" className="bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold py-3.5 px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-3 uppercase tracking-[0.15em] text-sm w-full sm:w-auto active:scale-95">
+            <a href="#enquiry-form" className="bg-[#b52727] hover:bg-[#911f1f] text-white font-semibold py-3.5 px-4 sm:px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-2 sm:space-x-3 uppercase tracking-[0.08em] sm:tracking-[0.15em] text-xs sm:text-sm w-full sm:w-auto active:scale-95">
               <span>Download Curriculum</span>
-              <svg className="w-5 h-5 border-[1.5px] border-white/40 rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 border-[1.5px] border-white/40 rounded-full p-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
             </a>
           </div>
         </div>

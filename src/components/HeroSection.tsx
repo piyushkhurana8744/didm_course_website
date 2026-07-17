@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import HeroForm from './HeroForm';
 
-export default function HeroSection({ term = "course", location }: { term?: string; location?: string }) {
+export default function HeroSection({ term = "course", location, enquirySource }: { term?: string; location?: string; enquirySource?: string }) {
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   const termCap = capitalize(term);
   
@@ -24,12 +24,12 @@ export default function HeroSection({ term = "course", location }: { term?: stri
             
             <h1 className="text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.2] tracking-tight text-[#fad400] uppercase animate-fade-in-up stagger-2">
               DIGITAL MARKETING<br />
-              <span className="text-white">{termCap} {location === 'gurgaon' ? 'in Gurugram' : ''}</span>
+              <span className="text-white">{termCap} {location === 'gurgaon' ? 'in Gurugram' : location === 'south-delhi' ? 'in South Delhi' : ''}</span>
             </h1>
           </div>
           
           <p className="text-white/90 text-[15px] sm:text-base max-w-xl font-normal leading-relaxed animate-fade-in-up stagger-3">
-            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing {term} certification program {location === 'gurgaon' ? 'in ' : ''}<span>{location === 'gurgaon' ? 'Gurugram (Gurgaon)' : 'Delhi NCR'}</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
+            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing {term} certification program {location === 'gurgaon' ? 'in ' : location === 'south-delhi' ? 'in ' : ''}<span>{location === 'gurgaon' ? 'Gurugram (Gurgaon)' : location === 'south-delhi' ? 'South Extension (South Delhi)' : 'Delhi NCR'}</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
           </p>
 
           <div className="flex flex-wrap gap-3 items-center animate-fade-in-up stagger-4">
@@ -52,7 +52,10 @@ export default function HeroSection({ term = "course", location }: { term?: stri
 
         {/* Right Content / Form */}
         <div className="w-full lg:w-[400px] shrink-0">
-          <HeroForm defaultLocation={location === 'gurgaon' ? 'Gurgaon' : ''} />
+          <HeroForm 
+            defaultLocation={location === 'gurgaon' ? 'Gurgaon' : location === 'south-delhi' ? 'South Extension' : ''} 
+            enquirySource={enquirySource}
+          />
         </div>
       </div>
     </section>

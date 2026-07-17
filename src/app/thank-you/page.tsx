@@ -9,7 +9,11 @@ export default function ThankYouPage() {
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans relative overflow-hidden">
       {/* Google Ads conversion event – fires when thank-you page loads */}
       <Script id="gtag-form-submit" strategy="afterInteractive">
-        {`gtag('event', 'form_submit', { send_to: 'AW-10840521883' });`}
+        {`
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+          window.gtag('event', 'form_submit', { send_to: 'AW-10840521883' });
+        `}
       </Script>
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-100/40 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 -z-10" />

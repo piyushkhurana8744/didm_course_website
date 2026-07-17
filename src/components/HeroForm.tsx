@@ -23,7 +23,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function HeroForm({ defaultLocation }: { defaultLocation?: string }) {
+export default function HeroForm({ defaultLocation, enquirySource = "Adword" }: { defaultLocation?: string; enquirySource?: string }) {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -47,7 +47,7 @@ export default function HeroForm({ defaultLocation }: { defaultLocation?: string
         email: data.email,
         phone: data.phone,
         location: data.location,
-        enquirysource: "Adword",
+        enquirysource: enquirySource,
       });
 
       // Fire Google Ads conversion event

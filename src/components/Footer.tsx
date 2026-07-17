@@ -24,7 +24,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function Footer({ term = "course", location }: { term?: string; location?: string }) {
+export default function Footer({ term = "course", location, enquirySource = "Adword" }: { term?: string; location?: string; enquirySource?: string }) {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -35,7 +35,7 @@ export default function Footer({ term = "course", location }: { term?: string; l
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      location: location === 'gurgaon' ? 'Gurgaon' : '',
+      location: location === 'gurgaon' ? 'Gurgaon' : location === 'south-delhi' ? 'South Extension' : '',
     }
   });
 
@@ -48,7 +48,7 @@ export default function Footer({ term = "course", location }: { term?: string; l
         email: data.email,
         phone: data.phone,
         location: data.location,
-        enquirysource: "Adword",
+        enquirysource: enquirySource,
         remark: "Lead from website",
       });
 
@@ -204,7 +204,7 @@ export default function Footer({ term = "course", location }: { term?: string; l
               <div>
                 <h4 className="font-semibold text-base text-[#fad400] mb-2 uppercase tracking-wider">About DIDM</h4>
                 <p className="text-[13px] text-white leading-relaxed font-normal mb-5">
-                  Delhi Institute of Digital Marketing makes our candidates gratifying when it comes to infusing skills with practical knowledge and recent trends in the industry. We are a reputed and the best digital marketing {term} {location === 'gurgaon' ? 'in Gurugram (Gurgaon) & Delhi/NCR' : 'in Delhi/NCR & across India'}. By MSME | ISO Certified.
+                  Delhi Institute of Digital Marketing makes our candidates gratifying when it comes to infusing skills with practical knowledge and recent trends in the industry. We are a reputed and the best digital marketing {term} {location === 'gurgaon' ? 'in Gurugram (Gurgaon) & Delhi/NCR' : location === 'south-delhi' ? 'in South Extension (South Delhi) & Delhi/NCR' : 'in Delhi/NCR & across India'}. By MSME | ISO Certified.
                 </p>
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
                    <Image 

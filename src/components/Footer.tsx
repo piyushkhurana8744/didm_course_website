@@ -35,7 +35,7 @@ export default function Footer({ term = "course", location, enquirySource = "Adw
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      location: location === 'gurgaon' ? 'Gurgaon' : location === 'south-delhi' ? 'South Extension' : '',
+      location: location === 'gurgaon' ? 'Gurgaon' : '',
     }
   });
 

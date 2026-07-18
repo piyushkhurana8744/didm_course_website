@@ -53,7 +53,7 @@ export default function CourseDescription({ term = "course", location }: { term?
           </div>
           
           <p className="text-slate-600 text-[15px] leading-relaxed font-normal">
-            We are prime and the best institute for a <span className="text-[#b52727] font-medium underline decoration-[#fad400] decoration-2 underline-offset-4">digital marketing {term}</span> {location === 'gurgaon' ? 'in Gurugram (Gurgaon)' : location === 'south-delhi' ? 'in South Extension' : 'in Delhi/NCR & across India'}. This {term} makes you capable of grabbing a good package as a fresher. Furthermore, it will enhance your skill if you are a working professional.
+            We are prime and the best institute for a <span className="text-[#b52727] font-medium underline decoration-[#fad400] decoration-2 underline-offset-4">digital marketing {term}</span> {location === 'gurgaon' ? 'in Gurugram (Gurgaon)' : 'in Delhi/NCR & across India'}. This {term} makes you capable of grabbing a good package as a fresher. Furthermore, it will enhance your skill if you are a working professional.
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-2">

@@ -19,7 +19,7 @@ export default function HeroSection({ term = "course", location, enquirySource }
           
           <div className="space-y-2">
             <h3 className="text-white font-medium text-base sm:text-lg tracking-wide uppercase animate-fade-in-up stagger-1">
-              {location === 'south-delhi' ? '#1 AI-Powered' : '#1 AI + Master in'}
+              {'#1 AI + Master in'}
             </h3>
             
             <h1 className="text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.2] tracking-tight text-[#fad400] uppercase animate-fade-in-up stagger-2">
@@ -61,7 +61,7 @@ export default function HeroSection({ term = "course", location, enquirySource }
         {/* Right Content / Form */}
         <div className="w-full lg:w-[400px] shrink-0">
           <HeroForm 
-            defaultLocation={location === 'gurgaon' ? 'Gurgaon' : location === 'south-delhi' ? 'South Extension' : ''} 
+            defaultLocation={location === 'gurgaon' ? 'Gurgaon' : ''} 
             enquirySource={enquirySource}
           />
         </div>

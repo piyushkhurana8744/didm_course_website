@@ -52,7 +52,7 @@ export default function WhyUsSection({ term = "course", location }: { term?: str
     ? gurgaonKeywords.slice(4)
     : [
         `Digital Marketing ${termCap} in Noida`,
-        `Digital Marketing ${termCap} in South Delhi`,
+        location === 'south-delhi' ? `Digital Marketing ${termCap} in South Extension` : `Digital Marketing ${termCap} in South Delhi`,
         `Digital Marketing ${termCap} in Dwarka`,
         `Digital Marketing ${termCap} in Gurugram`,
       ];

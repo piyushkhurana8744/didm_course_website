@@ -204,7 +204,7 @@ export default function Footer({ term = "course", location, enquirySource = "Adw
               <div>
                 <h4 className="font-semibold text-base text-[#fad400] mb-2 uppercase tracking-wider">About DIDM</h4>
                 <p className="text-[13px] text-white leading-relaxed font-normal mb-5">
-                  Delhi Institute of Digital Marketing makes our candidates gratifying when it comes to infusing skills with practical knowledge and recent trends in the industry. We are a reputed and the best digital marketing {term} {location === 'gurgaon' ? 'in Gurugram (Gurgaon) & Delhi/NCR' : location === 'south-delhi' ? 'in South Extension (South Delhi) & Delhi/NCR' : 'in Delhi/NCR & across India'}. By MSME | ISO Certified.
+                   Delhi Institute of Digital Marketing makes our candidates gratifying when it comes to infusing skills with practical knowledge and recent trends in the industry. We are a reputed and the best digital marketing {term} {location === 'gurgaon' ? 'in Gurugram (Gurgaon) & Delhi/NCR' : location === 'south-delhi' ? 'in South Extension & Delhi/NCR' : 'in Delhi/NCR & across India'}. By MSME | ISO Certified.
                 </p>
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
                    <Image 

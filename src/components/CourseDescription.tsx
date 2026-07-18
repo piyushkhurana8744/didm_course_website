@@ -48,12 +48,12 @@ export default function CourseDescription({ term = "course", location }: { term?
           <div className="space-y-3">
             <h4 className="text-[#b52727] font-semibold text-[11px] tracking-[0.3em] uppercase italic bg-red-50/50 inline-block px-4 py-1 rounded-full">HYBRID TRAINING PROGRAM</h4>
             <h2 className="text-2xl md:text-3xl lg:text-[36px] font-semibold text-[#0f172a] uppercase tracking-tight leading-[1.2]">
-              MASTER <span className="text-[#b52727]">IN DIGITAL</span> MARKETING {term.toUpperCase()} {location === 'gurgaon' ? 'IN GURUGRAM' : location === 'south-delhi' ? 'IN SOUTH DELHI' : ''}
+              MASTER <span className="text-[#b52727]">IN DIGITAL</span> MARKETING {term.toUpperCase()} {location === 'gurgaon' ? 'IN GURUGRAM' : ''}
             </h2>
           </div>
           
           <p className="text-slate-600 text-[15px] leading-relaxed font-normal">
-            We are prime and the best institute for a <span className="text-[#b52727] font-medium underline decoration-[#fad400] decoration-2 underline-offset-4">digital marketing {term}</span> {location === 'gurgaon' ? 'in Gurugram (Gurgaon)' : location === 'south-delhi' ? 'in South Extension (South Delhi)' : 'in Delhi/NCR & across India'}. This {term} makes you capable of grabbing a good package as a fresher. Furthermore, it will enhance your skill if you are a working professional.
+            We are prime and the best institute for a <span className="text-[#b52727] font-medium underline decoration-[#fad400] decoration-2 underline-offset-4">digital marketing {term}</span> {location === 'gurgaon' ? 'in Gurugram (Gurgaon)' : location === 'south-delhi' ? 'in South Extension' : 'in Delhi/NCR & across India'}. This {term} makes you capable of grabbing a good package as a fresher. Furthermore, it will enhance your skill if you are a working professional.
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-2">

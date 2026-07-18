@@ -19,17 +19,25 @@ export default function HeroSection({ term = "course", location, enquirySource }
           
           <div className="space-y-2">
             <h3 className="text-white font-medium text-base sm:text-lg tracking-wide uppercase animate-fade-in-up stagger-1">
-              #1 AI + Master in
+              {location === 'south-delhi' ? '#1 AI-Powered' : '#1 AI + Master in'}
             </h3>
             
             <h1 className="text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.2] tracking-tight text-[#fad400] uppercase animate-fade-in-up stagger-2">
               DIGITAL MARKETING<br />
-              <span className="text-white">{termCap} {location === 'gurgaon' ? 'in Gurugram' : location === 'south-delhi' ? 'in South Delhi' : ''}</span>
+              <span className="text-white">{termCap} {location === 'gurgaon' ? 'in Gurugram' : location === 'south-delhi' ? '' : ''}</span>
             </h1>
           </div>
           
           <p className="text-white/90 text-[15px] sm:text-base max-w-xl font-normal leading-relaxed animate-fade-in-up stagger-3">
-            Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing {term} certification program {location === 'gurgaon' ? 'in ' : location === 'south-delhi' ? 'in ' : ''}<span>{location === 'gurgaon' ? 'Gurugram (Gurgaon)' : location === 'south-delhi' ? 'South Extension (South Delhi)' : 'Delhi NCR'}</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
+            {location === 'south-delhi' ? (
+              <>
+                Enroll in DIDM's <span className="text-[#fad400] font-medium">AI-Powered</span> Digital Marketing Course at Delhi NCR's Premier Digital Marketing Institute and receive hands-on Digital Marketing Training in SEO, Google Ads, Social Media Marketing, Performance Marketing, and AI tools with industry-recognized certification.
+              </>
+            ) : (
+              <>
+                Join DIDM's <span className="text-[#fad400] font-medium">AI-powered</span> Digital Marketing {term} certification program {location === 'gurgaon' ? 'in ' : ''}<span>{location === 'gurgaon' ? 'Gurugram (Gurgaon)' : 'Delhi NCR'}</span> and Master SEO, Social Media Marketing, Google Ads, and Performance Marketing.
+              </>
+            )}
           </p>
 
           <div className="flex flex-wrap gap-3 items-center animate-fade-in-up stagger-4">

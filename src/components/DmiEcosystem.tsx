@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -94,14 +95,41 @@ export default function DmiEcosystem() {
     <section className="py-16 md:py-20 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10 space-y-10">
         
-        {/* Intro Section */}
-        <div className="space-y-4 text-center max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-[38px] font-extrabold text-[#0f172a] leading-tight tracking-tight">
-            <span className="text-[#b52727] italic">Digital Marketing Intelligence</span> (DMI) Diploma Program
-          </h2>
-          <p className="text-slate-600 text-[13px] sm:text-sm leading-relaxed font-normal text-center">
-            The Digital Marketing Intelligence (DMI) course is India's first 1-year AI-integrated diploma program designed to transition students from traditional marketers into growth strategists. Spanning over 400 hours, the curriculum operates on a unique &ldquo;Intelligence Cycle&rdquo; that builds proficiency through a repetitive loop of academy training, assessments, mentorship on an active agency floor, and live projects with real brands. The syllabus covers seven distinct phases, ranging from Digital Architecture and AI-Genesis to Performance Metrics and E-Commerce Strategic Intelligence, ensuring mastery over tools like Gemini, SEMrush, and Google Ads. To ensure career readiness, the program includes exclusive benefits such as a Pre-Placement Offer (PPO), a 2-month paid internship, 3 months of agency floor experience, and funding to run real paid ad campaigns.
-          </p>
+        {/* Intro Section with Overlapping Photos Side-by-Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Side: Overlapping Images */}
+          <div className="relative h-[260px] xs:h-[320px] sm:h-[380px] lg:h-[420px] animate-zoom-in">
+            {/* Back Image (Top tilted) */}
+            <div className="absolute top-0 right-0 w-[85%] h-[82%] z-0 rounded-2xl shadow-2xl overflow-hidden transform rotate-3 border-4 border-white">
+              <Image 
+                src="/images/DSC07557.png" 
+                alt="Digital Marketing Classroom" 
+                fill
+                className="object-cover"
+                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              />
+            </div>
+            {/* Front Image (Bottom tilted) */}
+            <div className="absolute bottom-0 left-0 w-[85%] h-[82%] z-10 rounded-2xl shadow-2xl overflow-hidden transform -rotate-2 border-4 border-white">
+              <Image 
+                src="/images/DSC05961.png" 
+                alt="Digital Marketing Graduates" 
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+          </div>
+
+          {/* Right Side: Intro Text */}
+          <div className="space-y-4 text-left">
+            <h2 className="text-2xl md:text-3xl lg:text-[34px] font-extrabold text-[#0f172a] leading-tight tracking-tight uppercase">
+              <span className="text-[#b52727] italic">Digital Marketing Intelligence</span> (DMI) Diploma Program
+            </h2>
+            <p className="text-slate-600 text-sm md:text-[15px] leading-relaxed font-normal">
+              The Digital Marketing Intelligence (DMI) course is India's first 1-year AI-integrated diploma program designed to transition students from traditional marketers into growth strategists. Spanning over 400 hours, the curriculum operates on a unique &ldquo;Intelligence Cycle&rdquo; that builds proficiency through a repetitive loop of academy training, assessments, mentorship on an active agency floor, and live projects with real brands. The syllabus covers seven distinct phases, ranging from Digital Architecture and AI-Genesis to Performance Metrics and E-Commerce Strategic Intelligence, ensuring mastery over tools like Gemini, SEMrush, and Google Ads. To ensure career readiness, the program includes exclusive benefits such as a Pre-Placement Offer (PPO), a 2-month paid internship, 3 months of agency floor experience, and funding to run real paid ad campaigns.
+            </p>
+          </div>
         </div>
 
         {/* Sub-heading — left aligned like screenshot */}

@@ -31,7 +31,7 @@ export default function DiplomaCoursePage() {
     <main className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary overflow-hidden pb-0">
       <TopNav location="diploma" />
       <DmiHero />
-      <StatsSection term="course" />
+      <StatsSection term="diploma" location="diploma" />
       <DmiEcosystem />
       <DmiToolsSection />
       <TrainingSpecification term="course" location="diploma" />

@@ -22,13 +22,13 @@ export default function CtaBanner() {
 
         {/* Right: Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto animate-zoom-in">
-          <a href="#footer-form" className="bg-[#fad400] hover:bg-yellow-400 text-[#0f172a] font-semibold py-3.5 px-7 rounded-xl shadow-xl flex items-center justify-center space-x-2 w-full sm:w-auto transition-all hover:-translate-y-0.5 active:scale-95 text-sm">
+          <a href="tel:9355835635" className="bg-[#fad400] hover:bg-yellow-400 text-[#0f172a] font-semibold py-3.5 px-7 rounded-xl shadow-xl flex items-center justify-center space-x-2 w-full sm:w-auto transition-all hover:-translate-y-0.5 active:scale-95 text-sm">
             <Phone className="w-4 h-4 fill-current" />
-            <span className="uppercase tracking-widest text-[13px]">Talk to Counsellor</span>
+            <span className="uppercase tracking-widest text-[13px]">Call @9355835635</span>
           </a>
           
           <a href="#enquiry-form" className="bg-white hover:bg-slate-50 text-[#0f172a] font-semibold py-3.5 px-7 rounded-xl shadow-lg flex items-center justify-center space-x-3 w-full sm:w-auto transition-all hover:-translate-y-0.5 active:scale-95 text-sm">
-            <span className="uppercase tracking-widest text-[13px]">Curriculum</span>
+            <span className="uppercase tracking-widest text-[13px]">Download Brochure</span>
             <div className="border-[1.5px] border-[#0f172a]/30 rounded-full p-1">
               <Download className="w-3.5 h-3.5" strokeWidth={2.5} />
             </div>

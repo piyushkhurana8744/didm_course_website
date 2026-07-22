@@ -14,7 +14,7 @@ export default function DmiCtaBanner() {
         <div className="space-y-1.5 animate-fade-in-up">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight uppercase leading-tight flex flex-wrap items-center justify-center gap-2">
             <HelpCircle className="w-6 h-6 text-[#fad400] animate-bounce" />
-            <span>Still Confused? Call <a href="tel:7835042109" className="text-[#fad400] underline hover:text-yellow-400 transition-colors">@7835042109</a> for answers</span>
+            <span>Still Confused? Call <a href="tel:9355835635" className="text-[#fad400] underline hover:text-yellow-400 transition-colors">@9355835635</a> for answers</span>
           </h2>
         </div>
 

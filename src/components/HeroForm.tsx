@@ -69,7 +69,7 @@ export default function HeroForm({ defaultLocation, enquirySource = "Adword" }: 
   };
 
   return (
-    <div id="enquiry-form" className="glass-card rounded-2xl p-4 xs:p-5 sm:p-7 w-full animate-fade-in-up stagger-2 shadow-2xl">
+    <div id="enquiry-form" className="glass-card rounded-2xl p-4 xs:p-5 sm:p-7 w-full animate-fade-in-up stagger-2 shadow-2xl scroll-mt-24">
       <div className="flex flex-col items-center mb-5">
         <h3 className="text-[#0f172a] text-lg font-semibold uppercase tracking-tight relative">
           DOWNLOAD BROCHURE

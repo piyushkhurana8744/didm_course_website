@@ -3,9 +3,8 @@ import { Metadata } from 'next';
 import TopNav from '@/components/TopNav';
 import DmiHero from '@/components/DmiHero';
 import StatsSection from '@/components/StatsSection';
-import CourseDescription from '@/components/CourseDescription';
 import DmiEcosystem from '@/components/DmiEcosystem';
-import ToolsSection from '@/components/ToolsSection';
+import DmiToolsSection from '@/components/DmiToolsSection';
 import TrainingSpecification from '@/components/TrainingSpecification';
 import LiveProjectIndustries from '@/components/LiveProjectIndustries';
 import ExclusiveDmiBenefits from '@/components/ExclusiveDmiBenefits';
@@ -30,18 +29,17 @@ export const metadata: Metadata = {
 export default function DiplomaCoursePage() {
   return (
     <main className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary overflow-hidden pb-0">
-      <TopNav />
+      <TopNav location="diploma" />
       <DmiHero />
       <StatsSection term="course" />
-      <CourseDescription term="course" />
       <DmiEcosystem />
-      <ToolsSection />
-      <TrainingSpecification term="course" />
+      <DmiToolsSection />
+      <TrainingSpecification term="course" location="diploma" />
       <LiveProjectIndustries />
       <ExclusiveDmiBenefits />
       <DmiCtaBanner />
       <DmiCareerBenefits />
-      <Footer term="course" />
+      <Footer term="course" location="diploma" />
     </main>
   );
 }

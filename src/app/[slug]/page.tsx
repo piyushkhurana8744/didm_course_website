@@ -26,7 +26,7 @@ export default async function Home({ params }: { params: Promise<{ slug: string 
     }
 
     type = slug.replace('digital-marketing-', '');
-    const validTypes = ['course', 'training', 'institute'];
+    const validTypes = ['course', 'training', 'institute', 'artificial-intelligence'];
     if (!validTypes.includes(type)) {
       notFound();
     }

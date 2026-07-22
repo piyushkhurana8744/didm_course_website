@@ -123,7 +123,7 @@ export default function DmiHero() {
 
         {/* Right Content / Form */}
         <div className="w-full lg:w-[420px] shrink-0">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 w-full shadow-2xl relative border border-slate-100 text-slate-800">
+          <div id="enquiry-form" className="bg-white rounded-3xl p-6 sm:p-8 w-full shadow-2xl relative border border-slate-100 text-slate-800 scroll-mt-24">
             <div className="flex flex-col items-center mb-6 text-center">
               <h3 className="text-[#0f172a] text-lg sm:text-xl font-bold uppercase tracking-wide relative pb-1.5 inline-block">
                 Book Free Demo Session

@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { CheckCircle2 } from 'lucide-react';
 import axios from 'axios';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 declare global {
   interface Window {
@@ -24,10 +25,21 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function Footer({ term = "course", location, enquirySource = "Adword" }: { term?: string; location?: string; enquirySource?: string }) {
+export default function Footer({ 
+  term = "course", 
+  location, 
+  enquirySource = "Adword",
+  enableTurnstile = false,
+}: { 
+  term?: string; 
+  location?: string; 
+  enquirySource?: string;
+  enableTurnstile?: boolean;
+}) {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -41,6 +53,12 @@ export default function Footer({ term = "course", location, enquirySource = "Adw
 
   const onSubmit = async (data: FormData) => {
     setApiError(null);
+
+    if (enableTurnstile && !turnstileToken) {
+      setApiError("Please complete the verification check.");
+      return;
+    }
+
     try {
       // Use internal API proxy to avoid CORS issues on Vercel
       await axios.post('/api/lead', {
@@ -50,6 +68,8 @@ export default function Footer({ term = "course", location, enquirySource = "Adw
         location: data.location,
         enquirysource: enquirySource,
         remark: "Lead from website",
+        turnstileToken: turnstileToken || undefined,
+        requireTurnstile: enableTurnstile,
       });
 
       // Fire Google Ads conversion event
@@ -143,6 +163,21 @@ export default function Footer({ term = "course", location, enquirySource = "Adw
               {errors.location && <p className="text-red-500 text-[11px] font-medium mt-1 ml-1">{errors.location.message}</p>}
             </div>
             
+            {enableTurnstile && (
+              <div className="flex justify-center py-2 bg-white/5 rounded-xl border border-white/10 p-2">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"}
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => setApiError("Turnstile verification error")}
+                  onExpire={() => setTurnstileToken(null)}
+                  options={{
+                    theme: 'dark',
+                    size: 'normal',
+                  }}
+                />
+              </div>
+            )}
+
             {apiError && (
               <p className="text-red-600 text-[13px] font-medium text-center mt-2 bg-red-50 p-4 rounded-xl border border-red-100 animate-zoom-in">
                 {apiError}

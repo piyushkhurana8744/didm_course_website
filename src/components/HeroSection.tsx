@@ -2,7 +2,17 @@ import React from 'react';
 import Image from 'next/image';
 import HeroForm from './HeroForm';
 
-export default function HeroSection({ term = "course", location, enquirySource }: { term?: string; location?: string; enquirySource?: string }) {
+export default function HeroSection({ 
+  term = "course", 
+  location, 
+  enquirySource, 
+  enableTurnstile = false 
+}: { 
+  term?: string; 
+  location?: string; 
+  enquirySource?: string; 
+  enableTurnstile?: boolean; 
+}) {
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   const termCap = capitalize(term);
   
@@ -63,6 +73,7 @@ export default function HeroSection({ term = "course", location, enquirySource }
           <HeroForm 
             defaultLocation={location === 'gurgaon' ? 'Gurgaon' : ''} 
             enquirySource={enquirySource}
+            enableTurnstile={enableTurnstile}
           />
         </div>
       </div>

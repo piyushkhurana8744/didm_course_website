@@ -34,11 +34,12 @@ export default async function Home({ params }: { params: Promise<{ slug: string 
 
   const location = isSouthDelhi ? 'south-delhi' : undefined;
   const enquirySource = isSouthDelhi ? 'Messenger' : 'Adword';
+  const enableTurnstile = slug === 'digital-marketing-training';
 
   return (
     <main className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary overflow-hidden pb-0">
       <TopNav location={location} />
-      <HeroSection term={type} location={location} enquirySource={enquirySource} />
+      <HeroSection term={type} location={location} enquirySource={enquirySource} enableTurnstile={enableTurnstile} />
       <StatsSection term={type} location={location} />
       <CourseDescription 
         term={type === "course" ? "course" : type === "training" ? "training" : type === "institute" ? "course" : "course"} 
@@ -49,7 +50,7 @@ export default async function Home({ params }: { params: Promise<{ slug: string 
       <TargetAudience term={type} />
       <CtaBanner />
       <WhyUsSection term={type} location={location} />
-      <Footer term={type} location={location} enquirySource={enquirySource} />
+      <Footer term={type} location={location} enquirySource={enquirySource} enableTurnstile={enableTurnstile} />
     </main>
   );
 }

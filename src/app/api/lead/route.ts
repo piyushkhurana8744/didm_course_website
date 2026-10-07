@@ -27,6 +27,45 @@ const getTransporter = () => {
 export async function POST(request: Request) {
   try {
     const data = await request.json();
+
+    // Verify Cloudflare Turnstile token if turnstileToken is passed or required
+    if (data.turnstileToken || data.requireTurnstile) {
+      if (!data.turnstileToken) {
+        return NextResponse.json(
+          { success: false, error: 'Please complete the Cloudflare Turnstile verification.' },
+          { status: 400 }
+        );
+      }
+
+      const secretKey = process.env.TURNSTILE_SECRET_KEY || '1x0000000000000000000000000000000AA';
+      const clientIp = request.headers.get('cf-connecting-ip') || 
+                       request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 
+                       '';
+
+      const verifyFormData = new URLSearchParams();
+      verifyFormData.append('secret', secretKey);
+      verifyFormData.append('response', data.turnstileToken);
+      if (clientIp) {
+        verifyFormData.append('remoteip', clientIp);
+      }
+
+      const verifyRes = await axios.post(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        verifyFormData.toString(),
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        }
+      );
+
+      if (!verifyRes.data?.success) {
+        return NextResponse.json(
+          { success: false, error: 'Cloudflare verification failed. Please try again.' },
+          { status: 400 }
+        );
+      }
+    }
     
     // Map internal fields to target API fields if necessary
     const params = new URLSearchParams({

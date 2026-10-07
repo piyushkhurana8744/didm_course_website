@@ -33,13 +33,15 @@ export default function Footer({
 }: { 
   term?: string; 
   location?: string; 
-  enquirySource?: string;
-  enableTurnstile?: boolean;
+  enquirySource?: string; 
+  enableTurnstile?: boolean; 
 }) {
   const router = useRouter();
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = React.useRef<any>(null);
+
   const {
     register,
     handleSubmit,
@@ -68,7 +70,7 @@ export default function Footer({
         location: data.location,
         enquirysource: enquirySource,
         remark: "Lead from website",
-        turnstileToken: turnstileToken || undefined,
+        "cf-turnstile-response": turnstileToken || undefined,
         requireTurnstile: enableTurnstile,
       });
 
@@ -81,9 +83,14 @@ export default function Footer({
       setTimeout(() => {
         router.push('/thank-you');
       }, 2000);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Submission error:", error);
-      setApiError("Something went wrong. Please try again.");
+      const msg = error?.response?.data?.message || "Something went wrong. Please try again.";
+      setApiError(msg);
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+        setTurnstileToken(null);
+      }
     }
   };
 
@@ -166,6 +173,7 @@ export default function Footer({
             {enableTurnstile && (
               <div className="flex justify-center py-2 bg-white/5 rounded-xl border border-white/10 p-2">
                 <Turnstile
+                  ref={turnstileRef}
                   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"}
                   onSuccess={(token) => setTurnstileToken(token)}
                   onError={() => setApiError("Turnstile verification error")}
@@ -173,6 +181,7 @@ export default function Footer({
                   options={{
                     theme: 'dark',
                     size: 'normal',
+                    action: 'enquiry_footer',
                   }}
                 />
               </div>

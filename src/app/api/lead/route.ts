@@ -28,41 +28,89 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
 
-    // Verify Cloudflare Turnstile token if turnstileToken is passed or required
-    if (data.turnstileToken || data.requireTurnstile) {
-      if (!data.turnstileToken) {
+    // 1. Check if Turnstile verification is required or provided
+    const turnstileToken = data["cf-turnstile-response"] || data.turnstileToken;
+    const isTurnstileRequired = data.requireTurnstile === true;
+
+    if (isTurnstileRequired || turnstileToken) {
+      if (typeof turnstileToken !== 'string' || turnstileToken.length === 0 || turnstileToken.length > 2048) {
         return NextResponse.json(
-          { success: false, error: 'Please complete the Cloudflare Turnstile verification.' },
-          { status: 400 }
+          { success: false, message: 'Bot verification failed' },
+          { status: 403 }
         );
       }
 
-      const secretKey = process.env.TURNSTILE_SECRET_KEY || '1x0000000000000000000000000000000AA';
+      const secret = process.env.TURNSTILE_SECRET || process.env.TURNSTILE_SECRET_KEY;
+      if (!secret) {
+        console.error('TURNSTILE_SECRET is not configured on server.');
+        return NextResponse.json(
+          { success: false, message: 'Bot verification failed' },
+          { status: 403 }
+        );
+      }
+
       const clientIp = request.headers.get('cf-connecting-ip') || 
                        request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 
                        '';
 
-      const verifyFormData = new URLSearchParams();
-      verifyFormData.append('secret', secretKey);
-      verifyFormData.append('response', data.turnstileToken);
+      const verifyBody = new URLSearchParams({
+        secret,
+        response: turnstileToken,
+      });
       if (clientIp) {
-        verifyFormData.append('remoteip', clientIp);
+        verifyBody.append('remoteip', clientIp);
       }
 
-      const verifyRes = await axios.post(
-        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-        verifyFormData.toString(),
-        {
+      let result: {
+        success?: boolean;
+        action?: string;
+        hostname?: string;
+        'error-codes'?: string[];
+      };
+
+      try {
+        const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
+          body: verifyBody,
+          signal: AbortSignal.timeout(10000),
+        });
+
+        if (!verifyRes.ok) {
+          return NextResponse.json(
+            { success: false, message: 'Bot verification failed' },
+            { status: 403 }
+          );
         }
+
+        result = await verifyRes.json();
+      } catch (err) {
+        console.error('Turnstile verification error:', err);
+        return NextResponse.json(
+          { success: false, message: 'Bot verification failed' },
+          { status: 403 }
+        );
+      }
+
+      // Allowed hostnames check
+      const allowedHostnames = new Set(
+        (process.env.TURNSTILE_HOSTNAMES || 'localhost,127.0.0.1')
+          .split(',')
+          .map((h) => h.trim())
+          .filter(Boolean)
       );
 
-      if (!verifyRes.data?.success) {
+      // Validate success, action, and hostname
+      const expectedActions = new Set(['enquiry_hero', 'enquiry_footer', 'signup', 'lead_form']);
+      const isActionValid = !result.action || expectedActions.has(result.action);
+      const isHostnameValid = !result.hostname || allowedHostnames.has(result.hostname);
+
+      if (!result.success || !isActionValid || !isHostnameValid) {
         return NextResponse.json(
-          { success: false, error: 'Cloudflare verification failed. Please try again.' },
-          { status: 400 }
+          { success: false, message: 'Bot verification failed' },
+          { status: 403 }
         );
       }
     }

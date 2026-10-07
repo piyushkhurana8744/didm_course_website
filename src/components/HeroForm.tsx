@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { CheckCircle2 } from 'lucide-react';
 import axios from 'axios';
-import { Turnstile } from '@marsidev/react-turnstile';
+import { Turnstile, TurnstileInstance } from '@marsidev/react-turnstile';
 
 declare global {
   interface Window {
@@ -37,6 +37,8 @@ export default function HeroForm({
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -64,7 +66,7 @@ export default function HeroForm({
         phone: data.phone,
         location: data.location,
         enquirysource: enquirySource,
-        turnstileToken: turnstileToken || undefined,
+        "cf-turnstile-response": turnstileToken || undefined,
         requireTurnstile: enableTurnstile,
       });
 
@@ -80,9 +82,15 @@ export default function HeroForm({
       setTimeout(() => {
         router.push('/thank-you');
       }, 2000);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Submission error:", error);
-      setApiError("Something went wrong. Please try again or contact support.");
+      const msg = error?.response?.data?.message || "Something went wrong. Please try again or contact support.";
+      setApiError(msg);
+      // Reset single-use token on retry
+      if (turnstileRef.current) {
+        turnstileRef.current.reset();
+        setTurnstileToken(null);
+      }
     }
   };
 
@@ -166,6 +174,7 @@ export default function HeroForm({
         {enableTurnstile && (
           <div className="flex justify-center py-1">
             <Turnstile
+              ref={turnstileRef}
               siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"}
               onSuccess={(token) => setTurnstileToken(token)}
               onError={() => setApiError("Turnstile verification error")}
@@ -173,6 +182,7 @@ export default function HeroForm({
               options={{
                 theme: 'light',
                 size: 'normal',
+                action: 'enquiry_hero',
               }}
             />
           </div>

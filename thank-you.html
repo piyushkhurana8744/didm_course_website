@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank You | DIDM</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="didm-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  Conversion tracking: paste your Google Ads / Meta Pixel / GA4 conversion code here.
+  This page only opens after a form is submitted, so every visit = one lead.
+-->
+<style>
+:root{
+  --brand:#bf282f; --brand-dark:#9a1f25; --ink:#14161f; --muted:#5b6070;
+  --bg:#ffffff; --soft:#f5f6fa; --line:#e4e6ee; --accent:#ffb400; --ok:#1aa260;
+  --radius:14px; --shadow:0 10px 30px rgba(20,22,31,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:var(--soft);line-height:1.6;font-size:16px;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px;width:100%}
+header{background:#fff;border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+header img{height:44px;width:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand);color:#fff;font-weight:600;padding:14px 24px;border-radius:10px;border:2px solid var(--brand);cursor:pointer;font-size:1rem;font-family:inherit;transition:.2s;white-space:nowrap}
+.btn:hover{background:var(--brand-dark);border-color:var(--brand-dark)}
+.btn.wa{background:#25d366;border-color:#25d366}
+.btn.wa:hover{background:#1ebe5b;border-color:#1ebe5b}
+.btn.ghost{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+header .btn{padding:10px 16px;font-size:.88rem}
+
+main{flex:1;padding:56px 0 64px}
+.hero{background:#fff;border-radius:22px;box-shadow:0 24px 60px rgba(20,22,31,.1);padding:48px 32px;text-align:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--brand),var(--accent))}
+.check{width:96px;height:96px;margin:0 auto 22px;border-radius:50%;background:#e8f6ee;display:grid;place-items:center;animation:pop .6s cubic-bezier(.2,1.4,.4,1) both}
+.check svg{width:52px;height:52px}
+.check path{stroke:var(--ok);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .6s .35s ease forwards}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+h1{font-size:clamp(1.8rem,4.4vw,2.7rem);line-height:1.2;margin-bottom:10px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--brand)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:56ch;margin:0 auto}
+.course{display:inline-block;margin-top:16px;background:#f9e5e6;color:var(--brand);font-weight:600;font-size:.9rem;padding:6px 14px;border-radius:99px}
+.course[hidden]{display:none}
+
+h2{font-size:1.3rem;margin:44px 0 16px;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;counter-reset:st}
+.steps li{counter-increment:st;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;position:relative}
+.steps li:before{content:counter(st);width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--ink);font-weight:800;display:grid;place-items:center;margin-bottom:12px}
+.steps b{display:block;font-size:1rem;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:.9rem}
+
+.cta{margin-top:36px;background:linear-gradient(135deg,#14161f 0%,#2a1015 100%);color:#fff;border-radius:20px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cta-text{flex:1 1 300px;min-width:0}
+.cta-text b{display:block;font-size:1.2rem;margin-bottom:4px}
+.cta-text span{color:#c9ccd6;font-size:.93rem}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.back{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn.exit{background:#fff;color:var(--muted);border-color:var(--line)}
+.btn.exit:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+footer{background:var(--ink);color:#b9bcc7;text-align:center;font-size:.82rem;padding:18px 16px}
+
+@media(max-width:760px){.steps{grid-template-columns:1fr}.hero{padding:40px 20px}.cta{padding:22px}.cta-btns{width:100%}.cta-btns .btn{flex:1}}
+@media(max-width:420px){header img{height:34px}header .btn{padding:9px 12px;font-size:.8rem}.cta-btns{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.check,.check path{animation:none;stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="index.html"><img src="didm-logo.jpg" alt="Delhi Institute of Digital Marketing (DIDM)" width="824" height="209"></a>
+    <a class="btn" href="tel:+918447222054">📞 Call Now</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="check" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M14 27l8 8 16-17"/></svg></div>
+      <h1>Thank You<span id="tyName"></span>! <em id="tyTitle">We've received your details.</em></h1>
+      <p class="lead" id="tyMsg">Our career counsellor will call you shortly to help you choose the right AI Powered Digital Marketing Course.</p>
+      <span class="course" id="tyCourse" hidden></span>
+    </section>
+
+    <h2>What happens next?</h2>
+    <ol class="steps">
+      <li><b>Counsellor call</b><span>Our team will call you within 30 minutes during working hours.</span></li>
+      <li><b>Brochure &amp; details</b><span>You'll get the syllabus, fees and batch details on WhatsApp &amp; email.</span></li>
+      <li><b>Free demo class</b><span>Attend a live demo class or visit our campus before you enrol.</span></li>
+    </ol>
+
+    <div class="cta">
+      <div class="cta-text">
+        <b>Can't wait for our call?</b>
+        <span>Talk to a counsellor right now on call or WhatsApp.</span>
+      </div>
+      <div class="cta-btns">
+        <a class="btn" href="tel:+918447222054">📞 Call Now</a>
+        <a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/918447222054?text=Hi%2C%20I%20just%20submitted%20the%20form%20on%20your%20website.%20Please%20share%20the%20course%20details.">💬 WhatsApp Us</a>
+      </div>
+    </div>
+
+    <div class="back">
+      <a class="btn ghost" href="index.html">← Back to Home</a>
+      <a class="btn exit" href="https://www.google.com/">Close ✕</a>
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 DIDM. All rights reserved.</footer>
+
+<script>
+// Personalise the page from the form that was just submitted (saved by index.html).
+const MESSAGES = {
+  brochure:  { title: "Your brochure is on its way.", msg: "We're sending the brochure with full syllabus, fees and batch details to your email and WhatsApp. Our counsellor will also call you shortly." },
+  syllabus:  { title: "Your syllabus is on its way.", msg: "We're sending the full 50+ module syllabus with fees and batch details to your email and WhatsApp." },
+  demo:      { title: "Your free demo class request is confirmed.", msg: "Our team will call you shortly to confirm your demo class slot." },
+  visit:     { title: "Your campus visit request is confirmed.", msg: "Our team will call you shortly to confirm the date and time of your campus visit." },
+  roadmap:   { title: "Your career roadmap is being prepared.", msg: "Our counsellor will call you to build your personalised career roadmap." },
+  callback:  { title: "We'll call you back shortly.", msg: "Our counsellor will call you with fees, batch timings and EMI options." },
+  counselling: { title: "Your free counselling is booked.", msg: "Our career counsellor will call you shortly to help you choose the right course." }
+};
+let lead = {};
+try { lead = JSON.parse(sessionStorage.getItem("didmLead") || "{}"); } catch (err) {}
+const m = MESSAGES[lead.intent];
+if (m) {
+  document.getElementById("tyTitle").textContent = m.title;
+  document.getElementById("tyMsg").textContent = m.msg;
+}
+if (lead.name) document.getElementById("tyName").textContent = ", " + lead.name.trim().split(/\s+/)[0];
+if (lead.course && !lead.course.startsWith("Not sure")) {
+  const c = document.getElementById("tyCourse");
+  c.textContent = "Course: " + lead.course;
+  c.hidden = false;
+}
+</script>
+</body>
+</html>

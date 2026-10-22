@@ -68,8 +68,11 @@ export default function Footer({
         email: data.email,
         phone: data.phone,
         location: data.location,
+        city: data.location,
+        state: data.location,
+        course: "Master in Digital Marketing (MIDM)",
         enquirysource: enquirySource,
-        remark: "Lead from website",
+        remark: `Lead from Footer form - ${data.location}`,
         "cf-turnstile-response": turnstileToken || undefined,
         requireTurnstile: enableTurnstile,
       });

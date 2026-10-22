@@ -115,27 +115,35 @@ export async function POST(request: Request) {
       }
     }
     
-    // Map internal fields to target API fields if necessary
+    // Clean and validate 10-digit mobile number
+    const rawPhone = String(data.phone || data.mobileno || '').trim();
+    const cleanMobile = rawPhone.replace(/\D/g, '').slice(-10);
+    const locationVal = data.location || data.city || data.state || 'Website';
+    const courseVal = data.course || "Digital Marketing Master Course";
+
+    // Map internal fields to target CRM API fields
     const params = new URLSearchParams({
       name: data.name || '',
       email: data.email || '',
-      mobileno: data.phone || data.mobileno || '',
-      course: data.course || "Digital Marketing Master Course",
+      mobileno: cleanMobile,
+      course: courseVal,
       enquirysource: data.enquirysource || "Website",
       interestlevel: data.interestlevel || "High",
       country: data.country || "India",
-      state: data.location || data.state || '',
-      city: data.city || '',
-      remark:"lead come from "+ data.location,
+      state: data.state || locationVal,
+      city: data.city || locationVal,
+      note: data.note || data.remark || `Lead from ${locationVal} - ${courseVal}`,
+      remark: data.remark || `lead come from ${locationVal}`,
       address: data.address || '',
       counsellor: data.counsellor || ''
     });
 
-    const apiUrl = `http://admin.didm.in/api/lead/custom/0001?${params.toString()}`;
+    const apiUrl = `https://admin.didm.in/api/lead/custom/0001?${params.toString()}`;
+    console.log('[CRM API HIT]:', apiUrl);
     
-    // Forward the request to the external API from the server
-    // This bypasses CORS and Mixed Content issues
-    const response = await axios.get(apiUrl);
+    // Forward the request to the external API from the server (bypasses CORS and Mixed Content)
+    const response = await axios.get(apiUrl, { timeout: 10000 });
+    console.log('[CRM API RESPONSE]:', response.status, response.data);
 
     // Try to send email notifications
     try {

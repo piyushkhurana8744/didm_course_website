@@ -40,6 +40,9 @@ export default function DmiHero() {
         email: data.email,
         phone: data.phone,
         location: data.location,
+        city: data.location,
+        state: data.location,
+        course: "Digital Marketing Intelligence (DMI) AI Diploma",
         enquirysource: "DMI",
       });
 

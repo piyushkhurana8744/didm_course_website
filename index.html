@@ -1090,7 +1090,7 @@ footer .copy{padding-top:20px;font-size:.82rem;text-align:center}
 <script>
 // Lead form: validate, then hand off to your CRM / form endpoint.
 // Set FORM_ENDPOINT to your webhook (e.g. Zapier, Google Apps Script) to capture leads.
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "/api/lead";
 const COPY = {
   callback:    { title: "Request a Callback", sub: "Share your details. Our counsellor will call you with fees, batch timings and EMI options.", btn: "Call Me Back →", ok: "Our counsellor will call you shortly." },
   brochure:    { title: "Download Brochure", sub: "Get the full syllabus, fees and batch details. We'll send the brochure to your email and WhatsApp.", btn: "Send Me the Brochure →", ok: "The brochure is on its way to your email and WhatsApp." },
@@ -1105,10 +1105,49 @@ async function sendLead(form) {
   const data = Object.fromEntries(new FormData(form));
   data.source = "didm-course-landing-page";
   data.page = location.href;
-  if (FORM_ENDPOINT) {
+  
+  const payload = {
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    course: data.course || "Master in Digital Marketing (MIDM)",
+    location: "Noida",
+    city: "Noida",
+    state: "Noida",
+    enquirysource: "GMB",
+    interestlevel: "High",
+    intent: data.intent || "brochure",
+    mode: data.mode || "Classroom"
+  };
+
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error("API call error");
+  } catch (err) {
+    console.warn("Proxy /api/lead fallback to direct CRM URL:", err);
     try {
-      await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-    } catch (err) { console.error(err); }
+      const cleanMobile = String(data.phone || '').replace(/\D/g, '').slice(-10);
+      const params = new URLSearchParams({
+        name: data.name || '',
+        email: data.email || '',
+        mobileno: cleanMobile,
+        course: data.course || "Master in Digital Marketing (MIDM)",
+        enquirysource: "GMB",
+        interestlevel: "High",
+        country: "India",
+        state: "Noida",
+        city: "Noida",
+        note: `lead from Noida Landing Page - ${data.course || ''}`,
+        remark: `lead from Noida Landing Page - ${data.course || ''}`
+      });
+      await fetch("https://admin.didm.in/api/lead/custom/0001?" + params.toString(), { mode: "no-cors" });
+    } catch (e) {
+      console.error(e);
+    }
   }
 }
 

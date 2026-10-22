@@ -221,7 +221,7 @@ export default function NoidaCourseClient() {
       location: "Noida",
       city: "Noida",
       state: "Noida",
-      enquirysource: "Adword",
+      enquirysource: "GMB",
       interestlevel: "High",
       intent,
       profile,

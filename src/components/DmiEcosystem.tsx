@@ -76,7 +76,7 @@ export default function DmiEcosystem() {
         location: data.location,
         city: data.location,
         state: data.location,
-        course: "Digital Marketing Intelligence (DMI) AI Diploma",
+        course: "Digital Marketing Intelligence (DMI) Diploma",
         enquirysource: "DMI",
       });
 

@@ -42,7 +42,7 @@ export default function DmiHero() {
         location: data.location,
         city: data.location,
         state: data.location,
-        course: "Digital Marketing Intelligence (DMI) AI Diploma",
+        course: "Digital Marketing Intelligence (DMI) Diploma",
         enquirysource: "DMI",
       });
 
@@ -86,7 +86,7 @@ export default function DmiHero() {
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.15] tracking-tight uppercase text-white animate-fade-in-up stagger-1">
               Digital Marketing Intelligence <br />
-              <span className="text-[#fad400]">(DMI) AI Diploma Program</span>
+              <span className="text-[#fad400]">(DMI) Diploma Program</span>
             </h1>
             
             <p className="text-white/90 text-sm sm:text-base max-w-2xl font-normal leading-relaxed animate-fade-in-up stagger-2">

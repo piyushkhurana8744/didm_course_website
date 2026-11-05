@@ -13,7 +13,7 @@ import DmiCareerBenefits from '@/components/DmiCareerBenefits';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Intelligence (DMI) AI Diploma Program | DIDM",
+  title: "Digital Marketing Intelligence (DMI) Diploma Program | DIDM",
   description: "India's First 1-Year AI-Integrated Diploma (400+ Hours). Master Digital Marketing with PPO guarantees, 3 months agency floor experience & practical live projects.",
   keywords: [
     "DMI Diploma Program",

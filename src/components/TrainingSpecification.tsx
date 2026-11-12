@@ -57,8 +57,8 @@ export default function TrainingSpecification({ term = "course", location }: { t
 
           <div className="pt-4">
             {location === 'diploma' || location === 'south-delhi' || location === 'gurgaon' ? (
-              <a href={`tel:${location === 'diploma' ? '9355835635' : location === 'south-delhi' ? '9266159115' : '9310076503'}`} className="bg-[#b52727] hover:bg-[#911f1f] w-full sm:w-auto text-white font-semibold py-3.5 px-4 sm:px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-2 sm:space-x-3 uppercase tracking-[0.08em] sm:tracking-[0.15em] text-xs sm:text-sm active:scale-95">
-                <span>{location === 'diploma' ? '9355835635' : location === 'south-delhi' ? '9266159115' : '9310076503'}</span>
+              <a href={`tel:${location === 'diploma' ? '9310075955' : location === 'south-delhi' ? '9266159115' : '9310076503'}`} className="bg-[#b52727] hover:bg-[#911f1f] w-full sm:w-auto text-white font-semibold py-3.5 px-4 sm:px-8 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center space-x-2 sm:space-x-3 uppercase tracking-[0.08em] sm:tracking-[0.15em] text-xs sm:text-sm active:scale-95">
+                <span>{location === 'diploma' ? '9310075955' : location === 'south-delhi' ? '9266159115' : '9310076503'}</span>
                 <div className="border-[1.5px] border-white/40 rounded-full p-1 flex-shrink-0">
                   <Phone className="w-3.5 h-3.5" strokeWidth={2.5} />
                 </div>

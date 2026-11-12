@@ -6,7 +6,7 @@ export default function TopNav({ location }: { location?: string }) {
   const isSouthDelhi = location === 'south-delhi';
   const isDiploma = location === 'diploma';
 
-  const phoneNum = isDiploma ? '9355835635' : isSouthDelhi ? '9266159115' : isGurgaon ? '9310076503' : null;
+  const phoneNum = isDiploma ? '9310075955' : isSouthDelhi ? '9266159115' : isGurgaon ? '9310076503' : null;
 
   return (
     <nav className="bg-white py-4 px-4 md:px-12 flex justify-center items-center border-b border-gray-100 shadow-sm">
